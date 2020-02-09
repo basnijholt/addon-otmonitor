@@ -5,6 +5,7 @@
 # ==============================================================================
 
 bashio::log.info "Initializing the config overwriting."
+
 OTMONITOR_CONF=/etc/otmonitor/otmonitor.conf
 
 otgw_host=$(bashio::config "otgw_host")
