@@ -8,4 +8,4 @@ bashio::log.info "Starting otmonitor..."
 
 # RUN otmonitor
 cd /opt || exit
-exec ./otmonitor -f /etc/otmonitor/otmonitor.conf
+exec ./otmonitor --daemon -f /etc/otmonitor/otmonitor.conf
