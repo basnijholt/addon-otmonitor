@@ -14,7 +14,6 @@ ARG BUILD_REF
 ARG BUILD_VERSION
 
 RUN mkdir -p /app && \
-    mkdir -p /data && \
     if [[ "${BUILD_ARCH}" = "aarch64" ]]; then URL_BASE="otmonitor-aarch64"; fi && \
     if [[ "${BUILD_ARCH}" = "amd64" ]]; then URL_BASE="otmonitor-x64"; fi && \
     if [[ "${BUILD_ARCH}" = "armhf" ]]; then URL_BASE="otmonitor-ahf"; fi && \
