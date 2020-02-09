@@ -7,23 +7,23 @@ COPY run.sh /
 
 RUN apk add --no-cache wget=1.20.3-r0
 
+# Build arguments
+ARG BUILD_ARCH
+ARG BUILD_DATE
+ARG BUILD_REF
+ARG BUILD_VERSION
+
 RUN mkdir -p /app && mkdir -p /data
 RUN if [[ "${BUILD_ARCH}" = "aarch64" ]]; then URL_BASE="otmonitor-aarch64"; fi \
     && if [[ "${BUILD_ARCH}" = "amd64" ]]; then URL_BASE="otmonitor-x64"; fi \
     && if [[ "${BUILD_ARCH}" = "armhf" ]]; then URL_BASE="otmonitor-ahf"; fi \
     && if [[ "${BUILD_ARCH}" = "i386" ]]; then URL_BASE="otmonitor"; fi
 
-RUN /usr/bin/wget http://otgw.tclcode.com/download/${URL_BASE} -O /app/otmonitor 
+RUN wget http://otgw.tclcode.com/download/${URL_BASE} -O /app/otmonitor 
 
 RUN chmod +x /app/otmonitor
 
 CMD ["/run.sh"]
-
-# Build arguments
-ARG BUILD_ARCH
-ARG BUILD_DATE
-ARG BUILD_REF
-ARG BUILD_VERSION
 
 # Labels
 LABEL \
