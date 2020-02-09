@@ -26,9 +26,9 @@
     },
     "schema": {
         "otgw_host": "str",
-        "otgw_port": "str",
+        "otgw_port": "int",
         "mqtt_broker": "str",
-        "mqtt_port": "str",
+        "mqtt_port": "int",
         "mqtt_username": "str",
         "mqtt_password": "str"
     }
