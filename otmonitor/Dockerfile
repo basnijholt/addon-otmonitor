@@ -20,8 +20,6 @@ RUN mkdir -p /opt && \
     wget http://otgw.tclcode.com/download/${URL_BASE} -O /opt/otmonitor && \
     chmod +x /opt/otmonitor
 
-CMD ["/run.sh"]
-
 # Labels
 LABEL \
     io.hass.name="otmonitor" \
