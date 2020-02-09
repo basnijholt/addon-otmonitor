@@ -14,7 +14,7 @@ mqtt_broker=$(bashio::config "mqtt_broker")
 mqtt_port=$(bashio::config "mqtt_port")
 mqtt_username=$(bashio::config "mqtt_username")
 mqtt_password=$(bashio::config "mqtt_password")
-mqtt_password_base64=`echo -n $mqtt_password | base64`
+mqtt_password_base64=`echo -n $mqtt_password | base64 -w 0`
 
 sed -i "s/%%otgw_host%%/${otgw_host}/g" ${OTMONITOR_CONF}
 sed -i "s/%%otgw_port%%/${otgw_port}/g" ${OTMONITOR_CONF}
