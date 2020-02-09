@@ -11,11 +11,11 @@ mqtt_password=$(jq --raw-output ".mqtt_password" $CONFIG_PATH)
 
 mqtt_password_base64=`echo -n ${mqtt_password} | base64`
 
-sed -i 's/otgw_host/${otgw_host}/g' ${OTMONITOR_CONF}
-sed -i 's/otgw_port/${otgw_port}/g' ${OTMONITOR_CONF}
-sed -i 's/mqtt_broker/${mqtt_broker}/g' ${OTMONITOR_CONF}
-sed -i 's/mqtt_port/${mqtt_port}/g' ${OTMONITOR_CONF}
-sed -i 's/mqtt_username/${mqtt_username}/g' ${OTMONITOR_CONF}
-sed -i 's/mqtt_password/${mqtt_password_base64}/g' ${OTMONITOR_CONF}
+sed -i 's/%%otgw_host%%/${otgw_host}/g' ${OTMONITOR_CONF}
+sed -i 's/%%otgw_port%%/${otgw_port}/g' ${OTMONITOR_CONF}
+sed -i 's/%%mqtt_broker%%/${mqtt_broker}/g' ${OTMONITOR_CONF}
+sed -i 's/%%mqtt_port%%/${mqtt_port}/g' ${OTMONITOR_CONF}
+sed -i 's/%%mqtt_username%%/${mqtt_username}/g' ${OTMONITOR_CONF}
+sed -i 's/%%mqtt_password%%/${mqtt_password_base64}/g' ${OTMONITOR_CONF}
 
 /app/otmonitor --daemon -f ${OTMONITOR_CONF}
