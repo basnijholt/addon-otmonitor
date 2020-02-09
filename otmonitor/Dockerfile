@@ -1,5 +1,4 @@
 ARG BUILD_FROM=hassioaddons/base:6.0.1
-# hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
 COPY otmonitor.conf /data/otmonitor.conf
@@ -22,10 +21,7 @@ sed -i 's/mqtt_port/${mqtt_port}/g' ${OTMONITOR_CONF}
 sed -i 's/mqtt_username/${mqtt_username}/g' ${OTMONITOR_CONF}
 sed -i 's/mqtt_password/${mqtt_password}/g' ${OTMONITOR_CONF}
 
-
-# Setup base
-RUN apk add --no-cache \
-    wget=1.20.3-r0
+RUN apk add --no-cache wget=1.20.3-r0
 
 RUN mkdir /app && \
     mkdir /data && \
