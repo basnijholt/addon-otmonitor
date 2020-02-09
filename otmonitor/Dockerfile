@@ -1,7 +1,7 @@
 ARG BUILD_FROM=hassioaddons/base:6.0.1
 FROM ${BUILD_FROM}
 
-COPY otmonitor.conf /data/otmonitor.conf
+COPY rootfs /
 
 COPY run.sh /
 
