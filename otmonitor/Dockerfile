@@ -3,7 +3,9 @@ FROM ${BUILD_FROM}
 
 COPY rootfs /
 
-RUN apk add --no-cache wget=1.20.3-r0
+RUN apt-get update \
+  && apt-get install -y wget \
+  && rm -rf /var/lib/apt/lists/*
 
 # Build arguments
 ARG BUILD_ARCH=amd64
