@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Bas Nijholt's Hass.io Add-ons: otmonitor
+# Runs the otmonitor server
+# ==============================================================================
+
+bashio::log.info "Starting otmonitor..."
+
+# RUN AdGuard Home server
+cd /opt/otmonitor || exit
+exec ./otmonitor -f ${OTMONITOR_CONF}
