@@ -4,7 +4,7 @@ FROM ${BUILD_FROM}
 COPY rootfs /
 
 RUN apt-get update \
-  && apt-get install -y wget \
+  && apt-get install -y wget python3-tk \
   && rm -rf /var/lib/apt/lists/*
 
 # Build arguments
