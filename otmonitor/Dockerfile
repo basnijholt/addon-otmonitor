@@ -7,14 +7,14 @@ COPY run.sh /
 
 RUN apk add --no-cache wget=1.20.3-r0
 
-RUN mkdir /app && \
-    mkdir /data && \
-    && if [[ "${BUILD_ARCH}" = "aarch64" ]]; then ARCH="-aarch64"; fi \
+RUN mkdir -p /app && mkdir -p /data
+RUN if [[ "${BUILD_ARCH}" = "aarch64" ]]; then ARCH="-aarch64"; fi \
     && if [[ "${BUILD_ARCH}" = "amd64" ]]; then ARCH="-x64"; fi \
     && if [[ "${BUILD_ARCH}" = "armhf" ]]; then ARCH="-ahf"; fi \
     && if [[ "${BUILD_ARCH}" = "i386" ]]; then ARCH=""; fi \
-    /usr/bin/wget http://otgw.tclcode.com/download/otmonitor${ARCH} -O /app/otmonitor && \
-    chmod +x /app/otmonitor
+    /usr/bin/wget http://otgw.tclcode.com/download/otmonitor${ARCH} -O /app/otmonitor 
+
+RUN chmod +x /app/otmonitor
 
 CMD ["/run.sh"]
 
