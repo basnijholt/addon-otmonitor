@@ -6,6 +6,6 @@
 
 bashio::log.info "Starting otmonitor..."
 
-# RUN AdGuard Home server
-cd /opt/otmonitor || exit
+# RUN otmonitor
+cd /opt || exit
 exec ./otmonitor -f ${OTMONITOR_CONF}
