@@ -13,14 +13,14 @@ ARG BUILD_DATE
 ARG BUILD_REF
 ARG BUILD_VERSION
 
-RUN mkdir -p /app && \
+RUN mkdir -p /usr/etc && \
     if [[ "${BUILD_ARCH}" = "aarch64" ]]; then URL_BASE="otmonitor-aarch64"; fi && \
     if [[ "${BUILD_ARCH}" = "amd64" ]]; then URL_BASE="otmonitor-x64"; fi && \
     if [[ "${BUILD_ARCH}" = "armhf" ]]; then URL_BASE="otmonitor-ahf"; fi && \
     if [[ "${BUILD_ARCH}" = "armv7" ]]; then URL_BASE="otmonitor-ahf"; fi && \
     if [[ "${BUILD_ARCH}" = "i386" ]]; then URL_BASE="otmonitor"; fi && \
-    wget http://otgw.tclcode.com/download/${URL_BASE} -O /app/otmonitor && \
-    chmod +x /app/otmonitor
+    wget http://otgw.tclcode.com/download/${URL_BASE} -O /usr/etc/otmonitor && \
+    chmod +x /usr/etc/otmonitor
 
 CMD ["/run.sh"]
 
