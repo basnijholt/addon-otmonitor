@@ -19,8 +19,8 @@ RUN mkdir -p /usr/etc && \
     if [[ "${BUILD_ARCH}" = "armhf" ]]; then URL_BASE="otmonitor-ahf"; fi && \
     if [[ "${BUILD_ARCH}" = "armv7" ]]; then URL_BASE="otmonitor-ahf"; fi && \
     if [[ "${BUILD_ARCH}" = "i386" ]]; then URL_BASE="otmonitor"; fi && \
-    wget http://otgw.tclcode.com/download/${URL_BASE} -O /usr/etc/otmonitor && \
-    chmod +x /usr/etc/otmonitor
+    wget http://otgw.tclcode.com/download/${URL_BASE} -O /usr/bin/otmonitor && \
+    chmod +x /usr/bin/otmonitor
 
 CMD ["/run.sh"]
 
