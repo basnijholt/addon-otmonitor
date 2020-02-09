@@ -25,7 +25,6 @@ sed -i 's/mqtt_password/${mqtt_password}/g' ${OTMONITOR_CONF}
 
 # Setup base
 RUN apk add --no-cache \
-    coreutils=8.31-r0 \
     wget=1.20.3-r0
 
 RUN mkdir /app && \

@@ -11,7 +11,11 @@
         "armhf",
         "i386"
     ],
+    "webui": "http://[HOST]:[PORT:8080]",
     "boot": "auto",
+    "ports": {
+    "8080/tcp": 8080
+    },
     "options": {
         "otgw_host": "None",
         "otgw_port": "None",
