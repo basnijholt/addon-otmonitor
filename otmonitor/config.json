@@ -14,8 +14,9 @@
         "armv7",
         "i386"
     ],
-    "webui": "http://[HOST]:[PORT:8080]",
     "boot": "auto",
+    "ingress": true,
+    "ingress_port": 8080,
     "ports": {
     "8080/tcp": 8080
     },
