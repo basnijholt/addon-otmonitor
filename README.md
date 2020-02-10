@@ -1,4 +1,4 @@
-# otmonitor Home Assistant supervisor add-on
+# [`otmonitor`](http://otgw.tclcode.com/otmonitor.html) Home Assistant supervisor add-on
 
 Install by going to Supervisor -> Add-on store -> Add new repository by url and fill in `https://github.com/basnijholt/addon-otmonitor`.
 
