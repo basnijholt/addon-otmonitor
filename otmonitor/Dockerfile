@@ -1,11 +1,21 @@
-ARG BUILD_FROM=hassioaddons/base:6.0.1
+ARG BUILD_FROM=hassioaddons/debian-base
 FROM ${BUILD_FROM}
 
-COPY rootfs /
-
 RUN apt-get update \
-  && apt-get install -y wget python3-tk \
-  && rm -rf /var/lib/apt/lists/*
+    && apt-get install -y --no-install-recommends \
+        nginx \
+        wget \
+        python3-tk \
+    && rm -fr \
+        /tmp/* \
+        /etc/nginx \
+        /var/{cache,log}/* \
+        /var/lib/apt/lists/* \
+    \
+    && mkdir -p /var/log/nginx \
+    && touch /var/log/nginx/error.log
+
+COPY rootfs /
 
 # Build arguments
 ARG BUILD_ARCH=amd64
