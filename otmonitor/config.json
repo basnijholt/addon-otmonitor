@@ -24,7 +24,7 @@
         "mqtt_username": "mqtt",
         "mqtt_password": "password_here"
     },
-    "panel_icon": "icon.png",
+    "panel_icon": "mdi:radiator",
     "schema": {
         "otgw_host": "str",
         "otgw_port": "int",
