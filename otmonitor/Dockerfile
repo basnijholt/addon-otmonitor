@@ -29,7 +29,9 @@ RUN wget https://github.com/hvxl/otmonitor/archive/master.zip && \
     unzip master.zip && mv otmonitor-master /otmonitor
 WORKDIR /otmonitor
 RUN wget -O sdx.kit https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/tclkit/sdx-20110317.kit && \
-    wget -O tclkit http://otgw.tclcode.com/download/tclkit-x64 && cp tclkit runtime
+    wget -O tclkit http://otgw.tclcode.com/download/tclkit-x64 && \
+    cp tclkit runtime && \
+    chmod +x tclkit
 
 RUN ./tclkit sdx.kit wrap otmonitor -runtime runtime && \
     cp otmonitor /opt/otmonitor && \
