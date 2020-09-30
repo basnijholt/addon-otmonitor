@@ -29,7 +29,12 @@ RUN wget https://github.com/hvxl/otmonitor/archive/master.zip && \
     unzip master.zip && mv otmonitor-master /otmonitor
 WORKDIR /otmonitor
 RUN wget -O sdx.kit https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/tclkit/sdx-20110317.kit && \
-    wget -O tclkit http://otgw.tclcode.com/download/tclkit-x64 && \
+    if [[ "${BUILD_ARCH}" = "aarch64" ]]; then URL_BASE="tclkit-x64"; fi && \
+    if [[ "${BUILD_ARCH}" = "amd64" ]]; then URL_BASE="tclkit-x64"; fi && \
+    if [[ "${BUILD_ARCH}" = "armhf" ]]; then URL_BASE="tclkit-ahf"; fi && \
+    if [[ "${BUILD_ARCH}" = "armv7" ]]; then URL_BASE="tclkit-ahf"; fi && \
+    if [[ "${BUILD_ARCH}" = "i386" ]]; then URL_BASE="tclkit"; fi && \
+    wget -O tclkit http://otgw.tclcode.com/download/${URL_BASE} && \
     cp tclkit runtime && \
     chmod +x tclkit
 
