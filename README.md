@@ -8,7 +8,8 @@ Example config for the add-on:
 ```yaml
 otgw_host: 192.168.1.26
 otgw_port: 6638
-mqtt_broker: 192.168.1.3
+relay_port: 7686
+mqtt_broker: addon_core_mosquitto
 mqtt_port: 1883
 mqtt_username: mqtt
 mqtt_password: PASSWORD_HERE
@@ -16,7 +17,9 @@ mqtt_password: PASSWORD_HERE
 
 Use with the [`climate.mqtt`](https://www.home-assistant.io/integrations/climate.mqtt/) integration.
 
-Example `configuration.yaml` for Home Assistant
+You can also connect HomeAssistant through [`opentherm_gw`](https://www.home-assistant.io/integrations/opentherm_gw/) integration using `relay_port`.
+
+Example `configuration.yaml` for Home Assistant:
 ```yaml
 climate:
   - platform: mqtt
