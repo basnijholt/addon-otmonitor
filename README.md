@@ -16,6 +16,7 @@ mqtt_password: PASSWORD_HERE
 ```
 
 Use with the [`climate.mqtt`](https://www.home-assistant.io/integrations/climate.mqtt/) integration.
+
 You can also connect HomeAssistant through [`opentherm_gw`](https://www.home-assistant.io/integrations/opentherm_gw/) integration using `relay_port`.
 
 Example `configuration.yaml` for Home Assistant:
