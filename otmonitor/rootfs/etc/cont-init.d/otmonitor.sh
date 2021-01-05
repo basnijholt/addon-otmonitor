@@ -20,7 +20,7 @@ if bashio::config 'mqtt_autoconfig' ; then
     mqtt_username="$( bashio::services mqtt 'username' )"
     mqtt_password="$( bashio::services mqtt 'password' )"
 else
-    bashio::log.info "Using manually p	rovided MQTT credentials"
+    bashio::log.info "Using manually provided MQTT credentials"
 
     mqtt_broker="$( bashio::config 'mqtt_broker' )"
     mqtt_port="$( bashio::config 'mqtt_port' )"
