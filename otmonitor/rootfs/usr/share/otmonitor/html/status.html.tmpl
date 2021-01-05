@@ -1,0 +1,108 @@
+% global gui error theme
+<!DOCTYPE html>
+<html lang="en">
+<head>
+[include header.inc]
+</head>
+<body>
+[include navbar.inc]
+
+<div class="container">
+    <div class="row-content">
+<h1>Status</h1>
+
+% set table1 {
+%    chenable    "Central heating enable"
+%    chmode        "Central heating mode"
+%    service        "Service request"
+%    dhwenable    "Domestic hot water enable"
+%    dhwmode        "Domestic hot water mode"
+%    lockoutreset    "Lockout-reset"
+%    coolingenable    "Cooling enable"
+%    coolingstatus    "Cooling status"
+%    lowpressure    "Low water pressure"
+%    otcstate    "Outside temp. comp. active"
+%    flame        "Flame status"
+%    flamefault    "Gas/flame fault"
+%    ch2enable    "Central heating 2 enable"
+%    ch2mode        "Central heating 2 mode"
+%    airpresfault    "Air pressure fault"
+%    fault        "Fault indication"
+%    diag        "Diagnostic indication"
+%    overtemp    "Water over-temperature"
+% }
+% set table2 {
+%    temperature    &deg;C    "Room temperature"
+%    outside        &deg;C    "Outside temperature"
+%    setpoint    &deg;C    "Room setpoint"
+%    boilertemp    &deg;C    "Boiler water temperature"
+%    override    &deg;C    "Remote override room setpoint"
+%    returntemp    &deg;C    "Return water temperature"
+%    controlsp    &deg;C    "Control setpoint"
+%    dhwtemp        &deg;C    "Domestic hot water temperature"
+%    chwsetpoint    &deg;C    "Max. central heating water setpoint"
+%    dhwsetpoint    &deg;C    "Domestic hot water setpoint"
+%    modulation    %    "Relative modulation level"
+%    pressure    bar    "Central heating water pressure"
+%    maxmod        %    "Max. relative modulation level"
+%    faultcode    ""    "OEM fault code"
+% }
+<table class="table table-hover table-striped table-condensed">
+% set col 0
+% foreach {n s} $table1 {
+%    if {![info exists gui($n)]} {
+%        set v check-unk.png
+%               set class checkunk
+%    } elseif {$gui($n)} {
+%        set v check-set.png
+%               set class checkset
+%    } else {
+%        set v check-clr.png
+%               set class checkclr
+%    }
+%    if {$col == 0} {
+<tr>
+% }
+<td>$s</td>
+<td><img width="16" height="16" class="$class" src="images/blank.png" id="$n"></td>
+%    if {[incr col] > 2} {
+%        set col 0
+</tr>
+%    }
+% }
+</table>
+
+<table class="table table-hover table-striped table-condensed">
+% set col 0
+% foreach {n u s} $table2 {
+%    if {[info exists gui($n)]} {set v $gui($n)} else {set v ---}
+%    if {$col == 0} {
+<tr>
+%    } else {
+<td width="20px">&nbsp;</td>
+%    }
+<td>$s</td>
+<td align="right" id="$n">$v</td>
+<td>$u</td>
+%    if {[incr col] > 1} {
+%        set col 0
+</tr>
+%    }
+% }
+</table>
+
+
+<table class="table table-hover table-bordered table-condensed">
+<tr>
+% for {set i 1} {$i <= 4} {incr i} {
+<td align="center" >Error 0$i:</td>
+<td align="center" id="error$i">$error($i)</td>
+% }
+</tr>
+</table>
+</div>
+</div>
+</div>
+<script src="js/status.js"></script>
+</body>
+</html>

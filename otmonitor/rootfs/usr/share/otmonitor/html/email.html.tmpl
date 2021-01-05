@@ -1,0 +1,211 @@
+%# -*- html -*-
+% global cfg theme
+<html>
+<head>
+[include header.inc]
+</head>
+<body>
+[include navbar.inc]
+
+% if {![info exists post]} {set post 0}
+% if {[dict exists $post email,enable ""]} {set cfg(email,enable) [dict get $post email,enable {}]}
+% if {[dict exists $post email,sender ""]} {set cfg(email,sender) [dict get $post email,sender {}]}
+% if {[dict exists $post email,server ""]} {set cfg(email,server) [dict get $post email,server {}]}
+% if {[dict exists $post email,port ""]} {set cfg(email,port) [dict get $post email,port {}]}
+% if {[dict exists $post email,user ""]} {set cfg(email,user) [dict get $post email,user {}]}
+% if {[dict exists $post email,password ""]} {set cfg(email,password) [dict get $post email,password {}]}
+% if {[dict exists $post email,secure ""]} {set cfg(email,secure) [dict get $post email,secure {}]}
+% if {[dict exists $post email,recipient ""]} {set cfg(email,recipient) [dict get $post email,recipient {}]}
+% if {[dict exists $post email,boilerfault ""]} {set cfg(email,boilerfault) [dict get $post email,boilerfault {}]}
+% if {[dict exists $post email,ventilationfault ""]} {set cfg(email,ventilationfault) [dict get $post email,ventilationfault {}]}
+% if {[dict exists $post email,solarfault ""]} {set cfg(email,solarfault) [dict get $post email,solarfault {}]}
+% if {[dict exists $post email,watchdogtimer ""]} {set cfg(email,watchdogtimer) [dict get $post email,watchdogtimer {}]}
+% if {[dict exists $post email,roomcold ""]} {set cfg(email,roomcold) [dict get $post email,roomcold {}]}
+% if {[dict exists $post email,pressure ""]} {set cfg(email,pressure) [dict get $post email,pressure {}]}
+
+<div class="container">
+    <div class="row-content">
+<h1>Email</h1>
+
+<div>
+
+<form class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action="email.html">
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,enable">Email enable</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,enable" value="$cfg(email,enable)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            Email enable
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,sender">sender</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,sender" value="$cfg(email,sender)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            sender
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,server">server</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,server" value="$cfg(email,server)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            server
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,port">port</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,port" value="$cfg(email,port)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            port
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,user">user</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,user" value="$cfg(email,user)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            user
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,password">password</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,password" value="$cfg(email,password)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            password
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,secure">secure</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,secure" value="$cfg(email,secure)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            secure
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,recipient">recipient</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,recipient" value="$cfg(email,recipient)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            recipient
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,boilerfault">Boilerfault</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,boilerfault" value="$cfg(email,boilerfault)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            Boilerfault
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,ventilationfault">Ventilationfault</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,ventilationfault" value="$cfg(email,ventilationfault)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            Ventilationfault
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,solarfault">solarfault</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,solarfault" value="$cfg(email,solarfault)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            solarfault
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,watchdogtimer">watchdogtimer</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,watchdogtimer" value="$cfg(email,watchdogtimer)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            watchdogtimer
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,roomcold">roomcold</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,roomcold" value="$cfg(email,roomcold)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            roomcold
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="email,pressure">pressure</label>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" name="email,pressure" value="$cfg(email,pressure)">
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            pressure
+        </div>
+    </div>
+</div>
+
+<hr>
+<button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+</div>
+</div>
+</div>
+
+</body>
+
+</html>

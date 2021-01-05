@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+[include header.inc]
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+</head>
+<body>
+[include navbar.inc]
+
+<div class="container-fluid">
+    <div class="row-content">
+        <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Room temperature</span>
+                </div>
+                <div class="panel-body panelValue"><span id="temperature"></span>&deg;</div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Outside temperature</span>
+                </div>
+                <div class="panel-body panelValue"><span id="outside"></span>&deg;</div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Room setpoint</span>
+                </div>
+                <div class="panel-body panelValue"><span id="setpoint"></span>&deg;</div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Boiler water temperature</span>
+                </div>
+                <div class="panel-body panelValue"><span id="boilertemp"></span>&deg;</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-content">
+        <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Remote override room setpoint</span>
+                </div>
+                <div class="panel-body panelValue"><span id="override"></span>&deg;</div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Return water temperature</span>
+                </div>
+                <div class="panel-body panelValue"><span id="returntemp"></span>&deg;</div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Control setpoint</span>
+                </div>
+                <div class="panel-body panelValue"><span id="controlsp"></span>&deg;</div>
+            </div>
+        </div>
+         <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Domestic hot water temperature</span>
+                </div>
+                <div class="panel-body panelValue"><span id="dhwtemp"></span>&deg;</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-content">
+         <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Max. central heating water setpoint</span>
+                </div>
+                <div class="panel-body panelValue"><span id="chwsetpoint"></span>&deg;</div>
+            </div>
+        </div>
+         <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Domestic hot water setpoint</span>
+                </div>
+                <div class="panel-body panelValue"><span id="dhwsetpoint"></span>&deg;</div>
+            </div>
+        </div>
+         <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Relative modulation level</span>
+                </div>
+                <div class="panel-body panelValue"><span id="modulation"></span>%</div>
+            </div>
+        </div>
+         <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Central heating water pressure</span>
+                </div>
+                <div class="panel-body panelValue"><span id="pressure"></span> bar</div>
+            </div>
+        </div>
+    </div>
+    <div class="row-content">
+         <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Max. relative modulation level</span>
+                </div>
+                <div class="panel-body panelValue"><span id="maxmod"></span>%</div>
+            </div>
+        </div>
+         <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>OEM fault code</span>
+                </div>
+                <div class="panel-body panelValue"><span id="faultcode"></span></div>
+            </div>
+        </div>
+         <div class="col-xs-12 col-sm-6 col-lg-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span>Time</span>
+                </div>
+                <div class="panel-body panelValueDate"><span id="time"></span></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script type="text/javascript" src="js/dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+%# -*- html -*-
+% global cfg theme
+<html>
+<head>
+[include header.inc]
+</head>
+<body>
+[include navbar.inc]
+
+
+% if { $cfg(clock,auto) eq "true"} {set chk1 "checked"} else { set chk1 "checked:false"}
+% if { $cfg(clock,date) eq "true"} {set chk2 "checked"} else { set chk2 "checked:false"}
+% if { $cfg(clock,year) eq "true"} {set chk3 "checked"} else { set chk3 "checked:false"}
+
+% if {![info exists post]} {set post 0}
+% if {[dict exists $post clock,auto ""]} {set cfg(clock,auto) [dict get $post clock,auto {}]}
+% if {[dict exists $post clock,date ""]} {set cfg(clock,date) [dict get $post clock,date {}]}
+% if {[dict exists $post clock,year ""]} {set cfg(clock,year) [dict get $post clock,year {}]}
+
+<div class="container">
+    <div class="row-content">
+<h1>Clock</h1>
+
+<div>
+
+<form class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action="clock.html">
+<div class="form-group">
+    <label class="control-label col-sm-2" for="clock,auto">auto:</label>
+    <div class="col-sm-4">
+        <input type="checkbox" id="togglechk" data-toggle="toggle" class="form-control" name="clock,auto" $chk1>
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            clock,auto $cfg(clock,auto)
+            Automatically update the gateway clock
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="clock,date">date:</label>
+    <div class="col-sm-4">
+        <input type="checkbox" id="togglechk" data-toggle="toggle" class="form-control" name="clock,date" $chk2>
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            clock,date $cfg(clock,date)
+            Send the current date to the gateway
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-sm-2" for="clock,year">year:</label>
+    <div class="col-sm-4">
+        <input type="checkbox" id="togglechk" data-toggle="toggle" class="form-control" name="clock,year" $chk3>
+    </div>
+    <div class="col-sm-6">
+        <div class="alert alert-info">
+            clock,year $cfg(clock,year)
+            Send the current year to the gateway
+        </div>
+    </div>
+</div>
+
+  <hr>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+</div>
+</div>
+</div>
+<script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+[include header.inc]
+</head>
+<script>
+function execute(id) {
+    var request = document.getElementById(id);
+    var response = document.getElementById("response");
+    var xmlHttp = new XMLHttpRequest();
+    var name = request.name;
+    var cmd = request.item(request.selectedIndex).value;
+    xmlHttp.open("POST", "command", false);
+    xmlHttp.send(name + "=" + cmd);
+    response.innerHTML = "Result = " + xmlHttp.responseText;
+}
+</script>
+<body>
+[include navbar.inc]
+
+<div class="container">
+    <div class="row-content">
+<h1>Running commands</h1>
+<div>
+    <form>
+
+        <div class="form-group">
+
+            <label class="col-xs-12 control-label" for="sel1">Choose which piece of information to request from the gateway:</label>
+            <div class="col-xs-5">
+                <select id="request" name="PR" size="" class="form-control">
+                    <option value="A">Version information</option>
+                    <option value="B">Build time and date</option>
+                    <option value="C">Clock speed</option>
+                    <option value="G">Configured GPIO functions</option>
+                    <option value="L">Configured LED functions</option>
+                    <option value="M">Gateway Mode</option>
+                    <option value="O">Setpoint override</option>
+                    <option value="P">Current Smart-Power mode</option>
+                    <option value="R">Remeha thermostat detection</option>
+                    <option value="S">Setback temperature</option>
+                    <option value="T">Gateway tweaks</option>
+                    <option value="V">Reference voltage setting</option>
+                    <option value="W">Domestic hot water setting</option>
+                </select>
+            </div>
+            <div class=" ">
+                <button onclick="execute('request'); return false" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+<div class="alert alert-info" role="alert">
+    <div id="response"></div>
+</div>
+
+</div>
+</body>
+</html>

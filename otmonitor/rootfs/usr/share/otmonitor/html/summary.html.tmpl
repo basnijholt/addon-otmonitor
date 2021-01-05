@@ -1,0 +1,73 @@
+%# -*- html -*-
+% global message value last start theme
+<!DOCTYPE html>
+<html lang="en">
+<head>
+[include header.inc]
+</head>
+<body>
+[include navbar.inc]
+
+<div class="container">
+    <div class="row-content">
+<h1>Statistics</h1>
+<div>
+<table id="stats" class="table table-hover table-striped table-condensed">
+<thead>
+    <tr>
+        <th class="text-right"><a href="?sort=id">Hex</a></th>
+        <th class="text-right"><a href="?sort=id">Dec</a></th>
+        <th class="text-center"><a href="?sort=dir">Direction</a></th>
+        <th class="text-left"><a href="?sort=name">Description</a></th>
+        <th class="text-right"><a href="?sort=freq">Interval</a></th>
+        <th class="text-right"><a href="?sort=value">Value</a></th>
+    </tr>
+</thead>
+% set now [clock seconds]
+% set sort desc
+% if {[dict exists $state request query sort {}]} {
+%     set sort [dict get $state request query sort {}]
+% }
+% set list {}
+% foreach n [array names value {[14],*}] {
+%     lassign [split $n ,] type id
+%     if {[info exists message($id)]} {
+%         set msg [lindex $message($id) 0]
+%     } else {
+%         set msg "MessageID $id"
+%     }
+%     if {[llength $last($n)] > 1} {
+%         set freq [expr {([lindex $last($n) 0] - [lindex $last($n) end]) / ([llength $last($n)] - 1)}]
+%     } else {
+%         set freq ---
+%     }
+%     set dir [lindex {Read Write} [string match {1,*} $n]]
+%     lappend list [list $id $msg $freq $dir $value($n)]
+% }
+% switch -- $sort {
+%     id {set index 0; set opt -integer}
+%     freq {set index 2; set opt -dictionary}
+%     dir {set index 3; set opt -dictionary}
+%     value {set index 4; set opt -dictionary}
+%     default {set index 1; set opt -dictionary}
+% }
+<tbody>
+
+% foreach n [lsort $opt -index $index $list] {
+%     lassign $n id msg freq dir val
+    <tr>
+        <td class="text-right">[format %02X $id]</td>
+        <td class="text-right">$id</td>
+        <td class="text-center">$dir</td>
+        <td class="text-left">$msg</td>
+        <td class="text-right">$freq</td>
+        <td class="text-right">$val</td>
+    </tr>
+% }
+</tbody>
+</table>
+</div>
+</div>
+[include footer.inc]
+</body>
+</html>

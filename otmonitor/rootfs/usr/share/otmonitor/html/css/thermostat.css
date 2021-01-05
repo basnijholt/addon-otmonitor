@@ -1,0 +1,178 @@
+body {
+    background-color: #f1f1f1;
+    font-family: sans-serif;
+    margin: 0px;
+}
+
+.main {
+    max-width:600px;
+    margin: 0px auto;
+}
+
+.control-section {
+}
+
+.control-section table {
+    border: 1px solid #cccccc;
+    padding: 0px;
+    background-color: #ffffff;
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.control-section th {
+    border-bottom: 1px solid #cccccc;
+    padding:8px;
+}
+
+.control-section td {
+    border: 0px solid #cccccc;
+    padding:4px;
+}
+
+.control-title {
+    font-size:26px;
+    padding-left: 8px;
+    float:left;
+}
+
+.btn-connection {
+    font-size:12px;
+    color:#ffffff;
+    background-color:#d9534f;
+    border-radius: 4px;
+    border:0;
+    padding:10px;
+    text-decoration:none;
+    float:right;
+}
+
+.setpoint {
+    font-size: 100px;
+}
+
+.half {
+    font-size: 35px;
+    text-align: left;
+}
+
+.mode-container {
+    position: relative;
+}
+
+.mode-container .dhwmode {
+    position:absolute;
+    top: -26;
+    left: 0;
+}
+
+.btn-updown{
+    font-size: 40px;
+    width: 80px;
+    height: 50px;
+
+}
+
+.btn-updown button {
+  margin      : 0;
+  padding     : 0;
+  border      : 1px solid #cccccc;
+  background  : transparent;
+  font-family : inherit;
+  cursor      : pointer;
+}
+
+.btn-updown button:hover{
+    background-color:#f1f1f1;
+    font-weight:bold;
+}
+
+.prog-section {
+}
+
+.prog-section table {
+    border: 1px solid #cccccc;
+    padding: 8px;
+    background-color: #ffffff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.prog-section td{
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+
+.scheduler {
+    padding-left: 8px;
+    padding-top: 8px;
+    float:left;
+}
+
+.status {
+    padding-left: 8px;
+    padding-top: 8px;
+    float:left;
+}
+
+.btn-program {
+    font-size:12px;
+    color:#fff;
+    background-color:#5cb85c;
+    border-radius: 4px;
+    border:0;
+    padding:10px;
+    text-decoration:none;
+    float:right;
+}
+
+.btn-manual {
+    font-size:12px;
+    color:#fff;
+    background-color:#d9534f;
+    border-radius: 4px;
+    border:0;
+    padding:10px;
+    text-decoration:none;
+    float:right;
+}
+
+.modes-section {
+}
+
+.modes-section table {
+    border: 1px solid #cccccc;
+    padding: 0px;
+    background-color: #ffffff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.modes-section tr + tr > td {
+    border-top: 1px solid #cccccc;
+}
+
+.modes-section td + td {
+    border-left: 1px solid #cccccc;
+}
+
+.modes-section td:hover {
+    background-color:#f1f1f1;
+    font-weight:bold;
+}
+
+.btn-lg-sel {
+    color: #428bca;
+    font-weight:bold;
+}
+
+.btn-lg-label{
+    font-size:20px;
+}
+
+#away,#home,#sleep,#comfort {
+   text-align:center;
+   width:50%;
+   padding: 30px;
+}

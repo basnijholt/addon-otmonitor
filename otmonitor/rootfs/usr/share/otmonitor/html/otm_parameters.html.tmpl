@@ -1,0 +1,97 @@
+%# -*- html -*-
+% global theme
+<!DOCTYPE html>
+<html lang="en">
+<head>
+[include header.inc]
+</head>
+<body>
+[include navbar.inc]
+
+<div class="container">
+    <div class="row-content">
+<h1>OTMonitor parameters</h1>
+
+<div>
+<table class="table table-hover table-striped table-condensed">
+<thead>
+<tr>
+    <th>Parameter</th>
+    <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>-f: - --configfile:FILE</td>
+    <td>use settings from a configuration file</td>
+</tr>
+<tr>
+    <td>-o: - --outputfile:FILE</td>
+    <td>write the message log to a file.</td>
+</tr>
+<tr>
+    <td>-d: - --datafile:FILE</td>
+    <td>periodically write some parameters to a file.</td>
+</tr>
+<tr>
+    <td>-l - --log</td>
+    <td>on startup, show the log tab.</td>
+</tr>
+<tr>
+    <td>-g - --graph</td>
+    <td>on startup, show the graph tab.</td>
+</tr>
+<tr>
+    <td>-s - --statistics</td>
+    <td>on startup, show the statistics tab.</td>
+</tr>
+<tr>
+    <td>-p: - --port:PORT</td>
+    <td>relay server port, default: 7686.</td>
+</tr>
+<tr>
+    <td>-w: - --webserver:PORT</td>
+    <td>start a web server on the specified port</td>
+</tr>
+<tr>
+    <td>--theme:THEME</td>
+    <td>select a web server theme</td>
+</tr>
+<tr>
+    <td>-v - --version</td>
+    <td>display the program version and exit.</td>
+</tr>
+<tr>
+    <td>-a - --append</td>
+    <td>append to the datafile instead of overwriting it</td>
+ </tr>
+<tr>
+    <td>-b - --bitflags</td>
+    <td>show bit flag details in the message log</td>
+</tr>
+<tr>
+    <td>--upgrade:FILE</td>
+    <td>perform a firmware upgrade and exit</td>
+</tr>
+<tr>
+    <td>--daemon</td>
+    <td>run as daemon in the background without a gui</td>
+</tr>
+<tr>
+    <td>--system</td>
+    <td>Connect to the system dbus instead of the session dbus</td>
+</tr>
+<tr>
+    <td>--debug</td>
+    <td>Enable debug</td>
+</tr>
+<tr>
+    <td>-h - --help</td>
+    <td>display this help and exit.</td>
+</tr>
+</tbody>
+</div>
+</div>
+</div>
+</body>
+</html>
