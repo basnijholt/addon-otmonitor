@@ -25,6 +25,7 @@
         "8080/tcp": "otmonitor webserver port",
         "7686/tcp": "otmonitor relay port (i.e. for OTGW integration)"
     },
+    "map": ["share:rw"],
     "options": {
         "otgw_host": "192.168.1.24",
         "otgw_port": 6638,
@@ -33,7 +34,11 @@
         "mqtt_port": 1883,
         "mqtt_username": "mqtt",
         "mqtt_password": "password_here",
-        "mqtt_autoconfig": false
+        "mqtt_autoconfig": false,
+        "html_templates": {
+            "enabled": false,
+            "editable": false
+        }
     },
     "panel_icon": "mdi:radiator",
     "schema": {
@@ -45,6 +50,10 @@
         "mqtt_username": "str?",
         "mqtt_password": "str?",
         "mqtt_client_id": "str?",
-        "mqtt_autoconfig": "bool"
+        "mqtt_autoconfig": "bool",
+        "html_templates": {
+            "enabled": "bool",
+            "editable": "bool"
+        }
     }
-  }
+}

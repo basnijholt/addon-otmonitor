@@ -4,17 +4,43 @@
 # Handles configuration
 # ==============================================================================
 
-bashio::log.info "Initializing the config overwriting."
+bashio::log.info "Initializing service configuration."
 
 OTMONITOR_CONF=/etc/otmonitor/otmonitor.conf
+
+
+# ======================================
+# Configure custom html templates
+# ======================================
+
+if bashio::config.true 'html_templates.enabled'; then
+    bashio::log.info "Setting up html template files for otmonitor"
+
+    if bashio::config.true 'html_templates.editable' ; then
+        template_source=/share/otmonitor/html
+    else
+        template_source=/usr/share/otmonitor/html
+    fi
+
+    if ! bashio::fs.directory_exists "${template_source}" ; then
+        bashio::log.info "Copying html template files to ${template_source}"
+
+        mkdir -p "${template_source}"
+        cp -r /usr/share/otmonitor/html/* "${template_source}/"
+    fi
+
+    bashio::log.info "Copying the custom html templates to /opt/html"
+    ln -sf "${template_source}" /opt/html
+fi
+
 
 # ======================================
 # Update otgw host and ports in config
 # ======================================
 
-otgw_host="$( bashio::config 'otgw_host')"
-otgw_port="$( bashio::config 'otgw_port')"
-relay_port="$( bashio::config 'relay_port')"
+otgw_host="$( bashio::config 'otgw_host' )"
+otgw_port="$( bashio::config 'otgw_port' )"
+relay_port="$( bashio::config 'relay_port' )"
 
 sed -i "s|%%otgw_host%%|${otgw_host}|g" ${OTMONITOR_CONF}
 sed -i "s|%%otgw_port%%|${otgw_port}|g" ${OTMONITOR_CONF}

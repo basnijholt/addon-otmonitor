@@ -95,3 +95,36 @@ Description: Retrieve the MQTT broker host, port and credentials from supervisor
 Default value: `false`
 Type: Boolean
 
+### Option: `html_templates.enabled`
+
+Description: Instead of the default layout, include the custom html templates that are provided with this plugin (Beta).
+Default value: `false`
+Type: Boolean
+
+### Option: `html_templates.editable`
+
+Description: Make the custom html templates edittable in `/share/otmonitor/html` (Beta).
+Default value: `false`
+Type: Boolean
+
+
+## Integration
+
+Use with the [`climate.mqtt`](https://www.home-assistant.io/integrations/climate.mqtt/) integration.
+
+You can also connect HomeAssistant through [`opentherm_gw`](https://www.home-assistant.io/integrations/opentherm_gw/) integration using `relay_port`.
+
+Example `configuration.yaml` for Home Assistant:
+```yaml
+climate:
+  - platform: mqtt
+    name: Thermostat
+    current_temperature_topic: events/central_heating/otmonitor/roomtemperature
+    temperature_command_topic: actions/otmonitor/setpoint
+    temperature_state_topic: events/central_heating/otmonitor/setpoint
+    min_temp: 5
+    max_temp: 35
+    initial: 17
+    temp_step: 0.5
+    precision: 0.5
+```
