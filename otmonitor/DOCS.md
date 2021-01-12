@@ -23,7 +23,7 @@ This add-on has a couple of options available. To get the add-on running:
 1. Fill in the required configuration.
 2. Start the add-on.
 3. Grab a coffee and wait a couple of minutes.
-4. Check the add-on log output to see if the addon was started succesfully.
+4. Check the add-on log output to see if the addon was started successfully.
 
 
 ## Configuration
