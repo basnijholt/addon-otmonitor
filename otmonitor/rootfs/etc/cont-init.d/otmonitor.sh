@@ -28,7 +28,14 @@ else
     mqtt_password="$( bashio::config 'mqtt_password' )"
 fi
 
+## b64 encode the password
 mqtt_password_base64="$( echo -n "${mqtt_password}" | base64 -w 0 )"
+
+## Set the client_id
+mqtt_client_id="$( bashio::config 'mqtt_client_id' )"
+if bashio::var.has_value "${mqtt_client_id}" ; then
+    sed -i "s|random_identifier_here|${mqtt_client_id}|g" ${OTMONITOR_CONF}
+fi
 
 sed -i "s|%%otgw_host%%|${otgw_host}|g" ${OTMONITOR_CONF}
 sed -i "s|%%otgw_port%%|${otgw_port}|g" ${OTMONITOR_CONF}
