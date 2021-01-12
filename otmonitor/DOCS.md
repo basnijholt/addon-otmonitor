@@ -5,18 +5,11 @@ that can be used for monitoring and managing your opentherm gateway.
 
 ## Installation
 
-Install by going to Supervisor -> Add-on store -> Add new repository by url and fill in `https://github.com/basnijholt/addon-otmonitor`.
-
-
-```txt
-https://github.com/hassio-addons/repository-test
-```
-
-
 1. Navigate in your Home Assistant frontend to **Supervisor** -> **Add-on Store**.
 2. Select "Add new repository by url" and fill in `https://github.com/basnijholt/addon-otmonitor`.
 2. Find the "otmonitor" add-on and click it.
 3. Click on the "INSTALL" button.
+
 
 ## Usage
 
