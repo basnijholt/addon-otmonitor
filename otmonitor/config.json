@@ -7,6 +7,7 @@
     "startup": "before",
     "hassio_api": true,
     "hassio_role": "default",
+    "services": ["mqtt:want"],
     "arch": [
         "aarch64",
         "amd64",
