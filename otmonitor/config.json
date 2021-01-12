@@ -40,10 +40,10 @@
         "otgw_host": "str",
         "otgw_port": "int",
         "relay_port": "int",
-        "mqtt_broker": "str",
-        "mqtt_port": "int",
-        "mqtt_username": "str",
-        "mqtt_password": "str",
+        "mqtt_broker": "str?",
+        "mqtt_port": "int?",
+        "mqtt_username": "str?",
+        "mqtt_password": "str?",
         "mqtt_autoconfig": "bool"
     }
   }
