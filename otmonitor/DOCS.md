@@ -95,5 +95,3 @@ Description: Retrieve the MQTT broker host, port and credentials from supervisor
 Default value: `false`
 Type: Boolean
 
-
-
