@@ -13,7 +13,7 @@ otgw_port="$( bashio::config 'otgw_port')"
 relay_port="$( bashio::config 'relay_port')"
 
 if bashio::config 'mqtt_autoconfig' ; then
-    bashio::log.info "Using autoconfig provided MQTT credentials from supervisor:"
+    bashio::log.info "Using autoconfig provided MQTT credentials from supervisor"
 
     mqtt_broker="$( bashio::services mqtt 'host' )"
     mqtt_port="$( bashio::services mqtt 'port' )"
