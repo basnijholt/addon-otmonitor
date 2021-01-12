@@ -44,7 +44,7 @@
         "mqtt_port": "int?",
         "mqtt_username": "str?",
         "mqtt_password": "str?",
-	"mqtt_client_id": "str?",
+        "mqtt_client_id": "str?",
         "mqtt_autoconfig": "bool"
     }
   }
