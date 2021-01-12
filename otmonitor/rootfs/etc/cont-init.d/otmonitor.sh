@@ -53,6 +53,4 @@ sed -i "s|%%mqtt_port%%|${mqtt_port}|g" ${OTMONITOR_CONF}
 sed -i "s|%%mqtt_username%%|${mqtt_username}|g" ${OTMONITOR_CONF}
 sed -i "s|%%mqtt_password%%|${mqtt_password_base64}|g" ${OTMONITOR_CONF}
 
-
-
 bashio::log.info "Finished the config overwriting."
