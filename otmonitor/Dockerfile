@@ -4,17 +4,17 @@ ARG BUILD_REF
 ARG BUILD_VERSION
 ARG BUILD_FROM
 
+################################################################################
+## Stage 1: Build the otmonitor binary using the tcl/tk toolkit               ##
+################################################################################
 FROM ${BUILD_FROM} as builder
 ARG BUILD_ARCH
 
-
-SHELL ["/bin/bash", "-o", "pipefail", "-x", "-c"]
+SHELL ["/bin/bash", "-o", "pipefail", "+x", "-c"]
 WORKDIR /otmonitor
+
 RUN apt-get update \
- && apt-get install -y --no-install-recommends \
-         wget \
-         unzip \
- \
+ && apt-get install -y --no-install-recommends wget \
  && wget -qO /tmp/otm.tgz https://github.com/hvxl/otmonitor/archive/master.tar.gz \
  && tar xzf /tmp/otm.tgz --strip=1 -C . \
  && rm /tmp/otm.tgz \
@@ -31,6 +31,9 @@ RUN apt-get update \
  && ./tclkit sdx.kit wrap otmonitor -runtime runtime
 
 
+################################################################################
+## Stage 2: Build the addon container                                         ##
+################################################################################
 FROM ${BUILD_FROM}
 ARG BUILD_ARCH
 ARG BUILD_DATE
@@ -38,7 +41,7 @@ ARG BUILD_REF
 ARG BUILD_VERSION
 
 RUN apt-get update \
- && apt-get install -y \
+ && apt-get install -y --no-install-recommends \
         nginx \
         python3-tk \
         unzip \
