@@ -1,16 +1,18 @@
-% global gui error theme
+% global gui error
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
 [include header.inc]
-</head>
-<body>
+    <script>
+        var query = {"var" : \["gui", "error"\]};
+    </script>
+    <script src="js/status.js"></script>
+    </head>
+    <body>
 [include navbar.inc]
-
-<div class="container">
-    <div class="row-content">
-<h1>Status</h1>
-
+    <div class="container">
+        <div class="row-content">
+            <h1>Status</h1>
 % set table1 {
 %    chenable    "Central heating enable"
 %    chmode        "Central heating mode"
@@ -47,7 +49,7 @@
 %    maxmod        %    "Max. relative modulation level"
 %    faultcode    ""    "OEM fault code"
 % }
-<table class="table table-hover table-striped table-condensed">
+            <table class="table table-hover table-striped table-condensed">
 % set col 0
 % foreach {n s} $table1 {
 %    if {![info exists gui($n)]} {
@@ -61,48 +63,46 @@
 %               set class checkclr
 %    }
 %    if {$col == 0} {
-<tr>
+            <tr>
 % }
-<td>$s</td>
-<td><img width="16" height="16" class="$class" src="images/blank.png" id="$n"></td>
+                <td>$s</td>
+                <td><img width="16" height="16" class="$class" src="images/blank.png" id="$n"></td>
 %    if {[incr col] > 2} {
 %        set col 0
-</tr>
+            </tr>
 %    }
 % }
-</table>
+            </table>
 
-<table class="table table-hover table-striped table-condensed">
+            <table class="table table-hover table-striped table-condensed">
 % set col 0
 % foreach {n u s} $table2 {
 %    if {[info exists gui($n)]} {set v $gui($n)} else {set v ---}
 %    if {$col == 0} {
-<tr>
+            <tr>
 %    } else {
-<td width="20px">&nbsp;</td>
+            <td width="20px">&nbsp;</td>
 %    }
-<td>$s</td>
-<td align="right" id="$n">$v</td>
-<td>$u</td>
+            <td>$s</td>
+            <td align="right" id="$n">$v</td>
+            <td>$u</td>
 %    if {[incr col] > 1} {
 %        set col 0
-</tr>
+            </tr>
 %    }
 % }
-</table>
+            </table>
 
-
-<table class="table table-hover table-bordered table-condensed">
-<tr>
+            <table class="table table-hover table-bordered table-condensed">
+                <tr>
 % for {set i 1} {$i <= 4} {incr i} {
-<td align="center" >Error 0$i:</td>
-<td align="center" id="error$i">$error($i)</td>
+                    <td align="center" >Error 0$i:</td>
+                    <td align="center" id="error$i">$error($i)</td>
 % }
-</tr>
-</table>
-</div>
-</div>
-</div>
-<script src="js/status.js"></script>
-</body>
+                </tr>
+            </table>
+            </div>
+        </div>
+        </div>
+    </body>
 </html>

@@ -5,7 +5,7 @@ function debug(str) {
     if (output) output.innerHTML += str + "<BR>";
 }
 
-var wsurl = "ws" + document.URL.match("s?://[-a-z0-9.:]+/") + "basic.ws";
+var wsurl = getWebsocketUri("basic.ws");
 
 if ("WebSocket" in window) {
    var websocket = new WebSocket(wsurl);
@@ -14,11 +14,11 @@ if ("WebSocket" in window) {
 }
 
 websocket.onopen = function () {
-  connect.src = "images/online.png";
+  connect.src = "../images/online.png";
 };
 
 websocket.onclose = function (evt) {
-  connect.src = "images/offline.png";
+  connect.src = "../images/offline.png";
 };
 
 websocket.onmessage = function(evt) {onMessage(evt)}
@@ -30,9 +30,9 @@ function onMessage(evt) {
         switch (elem.nodeName) {
           case "IMG":
             if (message[name] != 0) {
-              elem.src = "images/" + name + "-on.png"
+              elem.src = "../images/" + name + "-on.png"
             } else {
-              elem.src = "images/" + name + "-off.png"
+              elem.src = "../images/" + name + "-off.png"
             }
             break
           default:

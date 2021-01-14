@@ -1,66 +1,63 @@
 %# -*- html -*-
-% global cfg theme
+% global cfg
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
 [include header.inc]
-</head>
-<body>
+    </head>
+    <body>
 [include navbar.inc]
-
 % if {![info exists post]} {set post 0}
 % if {[dict exists $post alert,pressurehigh ""]} {set cfg(alert,pressurehigh) [dict get $post alert,pressurehigh {}]}
 % if {[dict exists $post alert,pressurelow ""]} {set cfg(alert,pressurelow) [dict get $post alert,pressurelow {}]}
 % if {[dict exists $post alert,roomcold ""]} {set cfg(alert,roomcold) [dict get $post alert,roomcold {}]}
+        <div class="container">
+            <div class="row-content">
+                <h1>Alert</h1>
+                <div>
+                    <form class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action="alert.html">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="alert,pressurehigh">Alert pressurehigh:</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="alert,pressurehigh" value="$cfg(alert,pressurehigh)">
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="alert alert-info">
+                                    Here you can set the trigger when the CH water pressure is too high
+                                </div>
+                            </div>
+                        </div>
 
-<div class="container">
-    <div class="row-content">
-<h1>Alert</h1>
-<div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="alert,pressurelow">Alert pressurelow:</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="alert,pressurelow" value="$cfg(alert,pressurelow)">
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="alert alert-info">
+                                    Here you can set the trigger when the CH water pressure is too low
+                                </div>
+                            </div>
+                        </div>
 
-<form class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action="alert.html">
-<div class="form-group">
-    <label class="control-label col-sm-2" for="alert,pressurehigh">Alert pressurehigh:</label>
-    <div class="col-sm-4">
-        <input type="text" class="form-control" name="alert,pressurehigh" value="$cfg(alert,pressurehigh)">
-    </div>
-    <div class="col-sm-6">
-        <div class="alert alert-info">
-            Here you can set the trigger when the CH water pressure is too high
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="alert,roomcold">Alert roomcold:</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="alert,roomcold" value="$cfg(alert,roomcold)">
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="alert alert-info">
+                                    Here you can set the trigger when the room temperature is too cold
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-
-<div class="form-group">
-    <label class="control-label col-sm-2" for="alert,pressurelow">Alert pressurelow:</label>
-    <div class="col-sm-4">
-        <input type="text" class="form-control" name="alert,pressurelow" value="$cfg(alert,pressurelow)">
-    </div>
-    <div class="col-sm-6">
-        <div class="alert alert-info">
-            Here you can set the trigger when the CH water pressure is too low
-        </div>
-    </div>
-</div>
-
-<div class="form-group">
-    <label class="control-label col-sm-2" for="alert,roomcold">Alert roomcold:</label>
-    <div class="col-sm-4">
-        <input type="text" class="form-control" name="alert,roomcold" value="$cfg(alert,roomcold)">
-    </div>
-    <div class="col-sm-6">
-        <div class="alert alert-info">
-            Here you can set the trigger when the room temperature is too cold
-        </div>
-    </div>
-</div>
-
-<hr>
-<button type="submit" class="btn btn-primary">Save</button>
-</form>
-
-</div>
-</div>
-</div>
-</body>
+    </body>
 </html>

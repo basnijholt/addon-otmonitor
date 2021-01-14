@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     function updateDash(){
         $.ajax({
-            url: "/json",
+            url: getHttpUri("json"),
             dataType: "json",
             cache: false,
             success: function(json) {
@@ -40,3 +40,4 @@ $(document).ready(function() {
     updateDash();
     setInterval(updateDash, 5000);
 });
+

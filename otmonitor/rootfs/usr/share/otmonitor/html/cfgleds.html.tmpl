@@ -1,47 +1,56 @@
 % global gpiofunc functions gpio led
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
 [include header.inc]
-<link rel="stylesheet" type="text/css" href="css/config.css">
-<script>
-var query = {"var": \["led", "gpio"\]};
-var learn = \["LA", "LB", "LC", "LD", "LE", "LF", "GA", "GB"\];
-</script>
-<script src="js/status.js"></script>
-</head>
-<body>
+        <script>
+            var query = {"var": \["led", "gpio"\]};
+            var learn = \["LA", "LB", "LC", "LD", "LE", "LF", "GA", "GB"\];
+        </script>
+        <script src="js/status.js"></script>
+    </head>
+    <body>
 [include navbar.inc]
-<h1>I/O pins</h1>
-<fieldset>
-<legend>GPIO</legend>
-<table>
+        <div class="container">
+            <div class="row-content">
+                <div>
+                    <h1>I/O pins</h1>
+                    <fieldset>
+                        <legend>GPIO</legend>
+                        <table>
 % foreach n {A B} {
-<tr>
-<td>GPIO port $n:</td>
-<td><select id="gpio$n" onchange="setting(this, 'G$n')">
+                            <tr>
+                                <td>GPIO port $n:</td>
+                                <td>
+                                    <select id="gpio$n" onchange="setting(this, 'G$n')">
 % dict for {v s} $gpiofunc {
-<option [selected gpio($n) $v]>$s</option>
+                                        <option [selected gpio($n) $v]>$s</option>
 % }
-</select></td>
-</tr>
+                                    </select>
+                                </td>
+                            </tr>
 % }
-</table>
-</fieldset>
-<fieldset>
-<legend>LEDs</legend>
-<table>
+                        </table>
+                    </fieldset>
+                    <fieldset>
+                        <legend>LEDs</legend>
+                        <table>
 % foreach {n d} {A F B X C O D M E P F C} {
-<tr>
-<td>LED $n:</td>
-<td><select id="led$n" onchange="setting(this, 'L$n')">
+                            <tr>
+                                <td>LED $n:</td>
+                                <td>
+                                    <select id="led$n" onchange="setting(this, 'L$n')">
 % dict for {v s} $functions {
-<option [selected led($n) $v [expr {$v eq $d}]]>$s</option>
+                                    <option [selected led($n) $v [expr {$v eq $d}]]>$s< /option>
 % }
-</select></td>
-</tr>
+                                    </select>
+                                </td>
+                            </tr>
 % }
-</table>
-</fieldset>
-</body>
+                        </table>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

@@ -1,12 +1,13 @@
-% global theme
+% global
 <html>
+    <head>
 [include header.inc]
-<body>
+    </head>
+    <body>
 [include navbar.inc]
-
-<div class="container">
-    <div class="row-content">
-<h1>Firmware upgrade</h1>
+        <div class="container">
+            <div class="row-content">
+                <h1>Firmware upgrade</h1>
 % set cpct 0
 % set dpct 0
 % set name "&nbsp;"
@@ -28,69 +29,68 @@
 %   }
 %   set name [dict get $state request post hexdata content-disposition filename]
 % }
+                <div>
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" id="filesel">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">File&nbsp;name:</label>
+                            <div class="col-sm-6">
+                                <div class="field form-control">$name</div>
+                            </div>
+                            <div class="col-sm-4">
+                                <input id="file" type="file" name="hexdata" onchange="filesel.submit()">
+                            </div>
+                        </div>
+                    </form>
 
-<div >
-<form class="form-horizontal" method="POST" enctype="multipart/form-data" id="filesel">
-    <div class="form-group">
-        <label class="control-label col-sm-2">File&nbsp;name:</label>
-        <div class="col-sm-6">
-            <div class="field form-control">$name</div>
-        </div>
-        <div class="col-sm-4">
-            <input id="file" type="file" name="hexdata" onchange="filesel.submit()">
-        </div>
-    </div>
-</form>
+                    <form class="form-horizontal" method="POST">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="xfer">Transfer old EEPROM settings to the new firmware</label>
+                            <div class="col-sm-6">
+                                <input type="checkbox" id="xfer" name="xfer" value="yes" checked="checked" $xfer>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="codemem">Code memory:</label>
+                            <div class="progress col-sm-6">
+                                <div class="progress-bar" role="progressbar" style="width:$cpct%;">&nbsp;</div>
+                            </div>
+                            <div class="col-sm-4">
+                                <p>[format %d%% $cpct]</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="datamem">Data memory:</label>
+                            <div class="progress col-sm-6">
+                                <div class="progress-bar" role="progressbar" style="width:$dpct%;">&nbsp;</div>
+                            </div>
+                            <div class="col-sm-4">
+                                <p>[format %d%% $dpct]</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Progress:</label>
+                            <div class="progress col-sm-6">
+                                <div class="progress-bar" role="progressbar" id="progress">&nbsp;</div>
+                            </div>
+                            <div class="col-sm-4">
+                                <p id="percent">0%</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Status:</label>
+                            <div class="col-sm-6">
+                                <div class="alert alert-info">
+                                    <p id="status">$status</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <input class="btn btn-primary" type="button" name="program" id="progbutton" value="Program" onclick="fwprog(this)" $prog>
+                    </form>
 
-<form class="form-horizontal" method="POST">
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="xfer">Transfer old EEPROM settings to the new firmware</label>
-        <div class="col-sm-6">
-            <input type="checkbox" id="xfer" name="xfer" value="yes" checked="checked" $xfer>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="codemem">Code memory:</label>
-        <div class="progress col-sm-6">
-            <div class="progress-bar" role="progressbar" style="width:$cpct%;">&nbsp;</div>
-        </div>
-        <div class="col-sm-4">
-            <p>[format %d%% $cpct]</p>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2" for="datamem">Data memory:</label>
-        <div class="progress col-sm-6">
-            <div class="progress-bar" role="progressbar" style="width:$dpct%;">&nbsp;</div>
-        </div>
-        <div class="col-sm-4">
-            <p>[format %d%% $dpct]</p>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2">Progress:</label>
-        <div class="progress col-sm-6">
-            <div class="progress-bar" role="progressbar" id="progress">&nbsp;</div>
-        </div>
-        <div class="col-sm-4">
-            <p id="percent">0%</p>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2">Status:</label>
-        <div class="col-sm-6">
-            <div class="alert alert-info">
-                <p id="status">$status</p>
+                    <script src="js/upgrade.js"></script>
+                </div>
             </div>
         </div>
-    </div>
-    <hr>
-    <input class="btn btn-primary" type="button" name="program" id="progbutton" value="Program" onclick="fwprog(this)" $prog>
-</form>
-
-<script src="js/upgrade.js"></script>
-</div>
-</div>
-</div>
-</body>
+    </body>
 </html>

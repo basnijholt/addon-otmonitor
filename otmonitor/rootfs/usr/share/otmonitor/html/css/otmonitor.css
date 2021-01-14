@@ -71,13 +71,13 @@ h3{
 }
 
 img.checkclr {
-  background-image:url('images/check-clr.png');
+  background-image:url('../images/check-clr.png');
 }
 
 img.checkset {
-  background-image:url('images/check-set.png');
+  background-image:url('../images/check-set.png');
 }
 
 img.checkunk {
-  background-image:url('images/check-unk.png');
+  background-image:url('../images/check-unk.png');
 }

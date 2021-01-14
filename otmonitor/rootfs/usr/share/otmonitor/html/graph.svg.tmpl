@@ -1,4 +1,4 @@
-% global track start gui graph graphdef theme timestamp
+% global track start gui graph graphdef timestamp
 % set now $timestamp
 % set maxx [expr {min(1440, ($now - $start) / 5.) + 25}]
 % if {[info exists graph]} {
@@ -21,7 +21,6 @@
 % set height [expr {round($height)}]
 % set zero [expr {92 * 5}]
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/css" href="css/$theme.css"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="$width" height="$height" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <title>Opentherm gateway graph</title>

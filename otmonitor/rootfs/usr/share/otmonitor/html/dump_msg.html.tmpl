@@ -1,22 +1,23 @@
 % global message
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
 [include header.inc]
-</head>
-<body>
+    </head>
+    <body>
 [include navbar.inc]
-
-<div class="container">
-    <div class="row-content">
-<h1>Msg Dump</h1>
-<table class="table table-hover table-bordered table-striped table-condensed">
+        <div class="container">
+            <div class="row-content">
+                <h1>Msg Dump</h1>
+                <table class="table table-hover table-bordered table-striped table-condensed">
 % foreach n [lsort -dictionary [array names message]] {
-<tr><td>$n</td><td>$message($n)</td></tr>
+                    <tr>
+                        <td>$n</td>
+                        <td>$message($n)</td>
+                    </tr>
 % }
-</table>
-
-</div>
-</div>
-</body>
+                </table>
+            </div>
+        </div>
+    </body>
 </html>

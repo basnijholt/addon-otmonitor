@@ -29,7 +29,7 @@ if bashio::config.true 'html_templates.enabled'; then
         cp -r /usr/share/otmonitor/html/* "${template_source}/"
     fi
 
-    bashio::log.info "Copying the custom html templates to /opt/html"
+    bashio::log.info "Linking the custom html templates to /opt/html"
     ln -sf "${template_source}" /opt/html
 fi
 
