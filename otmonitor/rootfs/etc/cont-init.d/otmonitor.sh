@@ -51,7 +51,7 @@ sed -i "s|%%relay_port%%|${relay_port}|g" ${OTMONITOR_CONF}
 # Update MQTT settings in config
 # ======================================
 
-if bashio::config 'mqtt_autoconfig' ; then
+if bashio::config.true 'mqtt_autoconfig' ; then
     bashio::log.info "Using autoconfig provided MQTT credentials from supervisor"
 
     mqtt_broker="$( bashio::services mqtt 'host' )"
