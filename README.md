@@ -4,6 +4,10 @@
 
 Opentherm monitor is a management and monitoring application for your [opentherm gateway](http://otgw.tclcode.com).
 
+## Installation
+
+Install by going to Supervisor -> Add-on store -> Add new repository by url and fill in `https://github.com/basnijholt/addon-otmonitor`.
+
 
 ## Local development
 
