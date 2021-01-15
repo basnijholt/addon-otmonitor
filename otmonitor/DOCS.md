@@ -39,6 +39,9 @@ mqtt_port: 1883
 mqtt_username: mqtt
 mqtt_password: password_here
 mqtt_autoconfig: false
+html_templates:
+  enabled: false
+  editable: false
 ```
 
 ### Option: `otgw_host`
