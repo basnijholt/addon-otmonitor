@@ -1,0 +1,20 @@
+% global cfg
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+[include header.inc]
+    </head>
+    <body>
+[include navbar.inc]
+        <div class="container">
+            <div class="row-content">
+                <form method="post" enctype="multipart/form-data" action="/vars">
+                    <input type="text" name="foo" />
+                    <input type="text" name="bar" />
+                    <input type="file" name="quux" />
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

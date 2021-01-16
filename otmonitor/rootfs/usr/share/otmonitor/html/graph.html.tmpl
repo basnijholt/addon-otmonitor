@@ -1,0 +1,26 @@
+% global cfg
+% set checked ""
+% if {$cfg(web,graphlegend)} {set checked checked}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+[include header.inc]
+    </head>
+    <body>
+[include navbar.inc]
+
+        <div class="container">
+            <div class="row-content">
+                <h1>Graph</h1>
+                <div>
+                    <iframe class="col-lg-12 col-md-12 col-sm-12" id="image" src="graph.svg" height="650px"></iframe>
+                    <span style="float:right">
+                        <label for="legend">Show legend</label>
+                        <input id="legend" type="checkbox" onclick="legend()" $checked>
+                    </span>
+                </div>
+                <script src="js/legend.js"></script>
+            </div>
+        </div>
+    </body>
+</html>
