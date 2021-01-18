@@ -25,7 +25,7 @@ RUN apt-get update \
  && if [[ "${BUILD_ARCH}" = "armhf" ]]; then URL_BASE="tclkit-ahf"; fi \
  && if [[ "${BUILD_ARCH}" = "armv7" ]]; then URL_BASE="tclkit-ahf"; fi \
  && if [[ "${BUILD_ARCH}" = "i386" ]]; then URL_BASE="tclkit"; fi \
- && wget -qO tclkit http://otgw.tclcode.com/download/${URL_BASE} \
+ && wget -qO tclkit https://otgw.tclcode.com/download/${URL_BASE} \
  && cp tclkit runtime \
  && chmod +x tclkit \
  && ./tclkit sdx.kit wrap otmonitor -runtime runtime
