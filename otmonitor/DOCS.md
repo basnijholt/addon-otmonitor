@@ -16,7 +16,7 @@ that can be used for monitoring and managing your opentherm gateway.
 To get the addon running, some configuration needs to be updated prior to starting.
 
 This includes the host and port on which the addon can access your opentherm gateway and the
-credentials that the addon should use to connect to an MQTT broker (only required if `mqtt_autoconfig` is disabled, which is the default option).
+credentials that the addon should use to connect to an MQTT broker (only required if `mqtt.autoconfig` is disabled, which is the default option).
 
 This add-on has a couple of options available. To get the add-on running:
 
@@ -31,84 +31,111 @@ This add-on has a couple of options available. To get the add-on running:
 Add-on configuration:
 
 ```yaml
-otgw_host: 192.168.1.24
-otgw_port: 6638
-relay_port: 7686
-mqtt_broker: addon_core_mosquitto
-mqtt_port: 1883
-mqtt_username: mqtt
-mqtt_password: password_here
-mqtt_autoconfig: false
+otgw:
+  host: 192.168.1.24
+  port: 6638
+  relay_port: 7686
+
+mqtt:
+  autoconfig: false
+  broker: addon_core_mosquitto
+  port: 1883
+  username: mqtt
+  password: password_here
+  client_id: otmonitor
+  event_topic: "some/topic"
+  action_topic: "some/other/topic"
+
 html_templates:
   enabled: false
   editable: false
 ```
 
-### Option: `otgw_host`
+### Option: `otgw`
 
-Description: The host or ip to connect to the OTGW.
-Default value: `192.168.1.24`
-Type: String
+- Subkey: `host`
+  - Description: The host or ip to connect to the OTGW.
+  - This setting is required
+  - Default value: `192.168.1.24`
+  - Type: String
 
-### Option: `otgw_port`
+- Subkey: `port`
+  - Description: The port to connect to on the OTGW.
+  - This setting is required
+  - Default value: `6638`
+  - Type: Integer
 
-Description: The port to connect to on the OTGW.
-Default value: `6638`
-Type: Integer
+- Subkey: `relay_port`
+  - Description: The port for relaying opentherm messages.
+  - This setting is required
+  - Default value: `7686`
+  - Type: Integer
 
-### Option: `relay_port`
 
-Description: The port for relaying opentherm messages.
-Default value: `7686`
-Type: Integer
+### Option: `mqtt`
 
-### Option: `mqtt_broker`
+- Subkey: `broker`
+  - Description: The host or ip to connect to the MQTT broker.
+  - This setting is only required when `mqtt.autoconfig` is set to false.
+  - Default value: `addon_core_mosquitto`
+  - Type: String
 
-Description: The host or ip to connect to the MQTT broker.
-Default value: `addon_core_mosquitto`
-Type: String
+- Subkey: `port`
+  - Description: The port to connect to on the MQTT broker.
+  - This setting is only required when `mqtt.autoconfig` is set to false.
+  - Default value: `1883`
+  - Type: Integer
 
-### Option: `mqtt_port`
+- Subkey: `username`
+  - Description: The username for authenticating on the MQTT broker.
+  - This setting is only required when `mqtt.autoconfig` is set to false.
+  - Default value: `mqtt`
+  - Type: String
 
-Description: The port to connect to on the MQTT broker.
-Default value: `1883`
-Type: Integer
+- Subkey: `password`
+  - Description: The password for authenticating on the MQTT broker.
+  - This setting is only required when `mqtt.autoconfig` is set to false.
+  - Default value: `password_here`
+  - Type: String
 
-### Option: `mqtt_username`
+- Subkey: `client_id`
+  - Description: The client identifier for the mqtt connection
+  - This setting is required
+  - Default value: `otmonitor`
+  - Type: String
 
-Description: The username for authenticating on the MQTT broker.
-Default value: `mqtt`
-Type: String
+- Subkey: `autoconfig`
+  - Description: Retrieve the MQTT broker host, port and credentials from supervisor. (For use with the mosquitto addon)
+  - This setting is required
+  - Default value: `false`
+  - Type: Boolean
 
-### Option: `mqtt_password`
+- Subkey: `action_topic`
+  - Description: The topic for controlling the otgw over mqtt.
+  - This setting is required
+  - Default value: `events/central_heating/otmonitor`
+  - Type: String
 
-Description: The password for authenticating on the MQTT broker.
-Default value: `password_here`
-Type: String
+- Subkey: `event_topic`
+  - Description: The topic for receiving otgw events over mqtt.
+  - This setting is required
+  - Default value: `events/central_heating/otmonitor`
+  - Type: String
 
-### Option: `mqtt_client_id`
 
-Description: The client identifier for the mqtt connection
-Default value: `otmonitor`
-Type: String
+### Option: `html_templates` (Beta)
 
-### Option: `mqtt_autoconfig`
+- Subkey: `enabled`
+  - Description: Instead of the default layout, include the custom html templates that are provided with this plugin.
+  - This setting is required
+  - Default value: `false`
+  - Type: Boolean
 
-Description: Retrieve the MQTT broker host, port and credentials from supervisor. (For use with the mosquitto addon)
-Default value: `false`
-Type: Boolean
-
-### Option: `html_templates.enabled`
-
-Description: Instead of the default layout, include the custom html templates that are provided with this plugin (Beta).
-Default value: `false`
-Type: Boolean
-
-### Option: `html_templates.editable`
-
-Description: Make the custom html templates edittable in `/share/otmonitor/html` (Beta).
-Default value: `false`
-Type: Boolean
+- Subkey: `editable`
+  - Description: Make the custom html templates edittable in `/share/otmonitor/html`.
+  - This setting is required
+  - Default value: `false`
+  - Type: Boolean
 
 
 ## Integration
