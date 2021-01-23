@@ -48,9 +48,9 @@ fi
 # Update otgw host and ports in config
 # ======================================
 
-setconf --key otgw_host  --value "$( bashio::config otgw_host  )"
-setconf --key otgw_port  --value "$( bashio::config otgw_port  )"
-setconf --key relay_port --value "$( bashio::config relay_port )"
+setconf --key otgw_host  --value "$( bashio::config otgw.host       )"
+setconf --key otgw_port  --value "$( bashio::config otgw.port       )"
+setconf --key relay_port --value "$( bashio::config otgw.relay_port )"
 
 # ======================================
 # Update MQTT settings in config

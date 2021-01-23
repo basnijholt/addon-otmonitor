@@ -27,9 +27,11 @@
     },
     "map": ["share:rw"],
     "options": {
-        "otgw_host": "192.168.1.24",
-        "otgw_port": 6638,
-        "relay_port": 7686,
+        "otgw": {
+            "host": "192.168.1.24",
+            "port": 6638,
+            "relay_port": 7686
+	},
         "mqtt": {
             "autoconfig": false,
             "broker": "addon_core_mosquitto",
@@ -47,18 +49,20 @@
     },
     "panel_icon": "mdi:radiator",
     "schema": {
-        "otgw_host": "str",
-        "otgw_port": "int",
-        "relay_port": "int",
-        "mqtt_autoconfig": "bool",
+        "otgw": {
+            "host": "str",
+            "port": "int",
+            "relay_port": "int"
+	},
         "mqtt": {
+            "autoconfig": "bool",
             "broker": "str?",
             "port": "int?",
             "username": "str?",
             "password": "str?",
             "client_id": "str?",
-            "action_topic": "str?",
-            "event_topic": "str?"
+            "action_topic": "str",
+            "event_topic": "str"
         },
         "html_templates": {
             "enabled": "bool",
