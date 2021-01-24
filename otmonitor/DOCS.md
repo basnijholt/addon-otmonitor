@@ -43,8 +43,8 @@ mqtt:
   username: mqtt
   password: password_here
   client_id: otmonitor
-  event_topic: "some/topic"
-  action_topic: "some/other/topic"
+  event_topic: "events/central_heating/otmonitor"
+  action_topic: "actions/otmonitor"
 
 html_templates:
   enabled: false
@@ -113,7 +113,7 @@ html_templates:
 - Subkey: `action_topic`
   - Description: The topic for controlling the otgw over mqtt.
   - This setting is required
-  - Default value: `events/central_heating/otmonitor`
+  - Default value: `actions/otmonitor`
   - Type: String
 
 - Subkey: `event_topic`
