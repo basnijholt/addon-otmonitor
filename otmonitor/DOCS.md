@@ -74,6 +74,12 @@ html_templates:
 
 ### Option: `mqtt`
 
+- Subkey: `autoconfig`
+  - Description: Retrieve the MQTT broker host, port and credentials from supervisor. (When using the mosquitto addon)
+  - This setting is required
+  - Default value: `false`
+  - Type: Boolean
+
 - Subkey: `broker`
   - Description: The host or ip to connect to the MQTT broker.
   - This setting is only required when `mqtt.autoconfig` is set to false.
@@ -103,12 +109,6 @@ html_templates:
   - This setting is required
   - Default value: `otmonitor`
   - Type: String
-
-- Subkey: `autoconfig`
-  - Description: Retrieve the MQTT broker host, port and credentials from supervisor. (For use with the mosquitto addon)
-  - This setting is required
-  - Default value: `false`
-  - Type: Boolean
 
 - Subkey: `action_topic`
   - Description: The topic for controlling the otgw over mqtt.
