@@ -1,6 +1,6 @@
 {
     "name": "otmonitor",
-    "version": "dev",
+    "version": "2021.01.01",
     "slug": "otmonitor",
     "description": "otmonitor add-on by Bas Nijholt",
     "url": "https://github.com/basnijholt/addon-otmonitor",
@@ -70,5 +70,6 @@
             "enabled": "bool",
             "editable": "bool"
         }
-    }
+    },
+    "image": "flapperdeflipper/{arch}-addon-otmonitor"
 }
