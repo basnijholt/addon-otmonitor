@@ -71,5 +71,5 @@
             "editable": "bool"
         }
     },
-    "image": "flapperdeflipper/{arch}-addon-otmonitor"
+    "image": "flapperdeflipper/addon-otmonitor-upstream"
 }
