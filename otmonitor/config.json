@@ -31,7 +31,7 @@
             "host": "192.168.1.24",
             "port": 6638,
             "relay_port": 7686
-	},
+        },
         "mqtt": {
             "autoconfig": false,
             "broker": "addon_core_mosquitto",
@@ -40,7 +40,8 @@
             "password": "password_here",
             "client_id": "otmonitor",
             "action_topic": "actions/otmonitor",
-            "event_topic": "events/central_heating/otmonitor"
+            "event_topic": "events/central_heating/otmonitor",
+            "data_format": "raw"
         },
         "html_templates": {
             "enabled": false,
@@ -53,16 +54,17 @@
             "host": "str",
             "port": "int",
             "relay_port": "int"
-	},
+        },
         "mqtt": {
             "autoconfig": "bool",
             "broker": "str?",
             "port": "int?",
             "username": "str?",
             "password": "str?",
-            "client_id": "str?",
+            "client_id": "str",
             "action_topic": "str",
-            "event_topic": "str"
+            "event_topic": "str",
+            "data_format": "str"
         },
         "html_templates": {
             "enabled": "bool",

@@ -59,7 +59,7 @@ setconf --key relay_port --value "$( bashio::config otgw.relay_port )"
 setconf --key mqtt_client_id    --value "$( bashio::config mqtt.client_id    )"
 setconf --key mqtt_action_topic --value "$( bashio::config mqtt.action_topic )"
 setconf --key mqtt_event_topic  --value "$( bashio::config mqtt.event_topic  )"
-
+setconf --key mqtt_data_format  --value "$( bashio::config mqtt.data_format  )"
 
 if bashio::config.true 'mqtt.autoconfig' ; then
     bashio::log.info "Using autoconfig provided MQTT credentials from supervisor"
