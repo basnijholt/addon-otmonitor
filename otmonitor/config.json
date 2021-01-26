@@ -27,14 +27,22 @@
     },
     "map": ["share:rw"],
     "options": {
-        "otgw_host": "192.168.1.24",
-        "otgw_port": 6638,
-        "relay_port": 7686,
-        "mqtt_broker": "addon_core_mosquitto",
-        "mqtt_port": 1883,
-        "mqtt_username": "mqtt",
-        "mqtt_password": "password_here",
-        "mqtt_autoconfig": false,
+        "otgw": {
+            "host": "192.168.1.24",
+            "port": 6638,
+            "relay_port": 7686
+        },
+        "mqtt": {
+            "autoconfig": false,
+            "broker": "addon_core_mosquitto",
+            "port": 1883,
+            "username": "mqtt",
+            "password": "password_here",
+            "client_id": "otmonitor",
+            "action_topic": "actions/otmonitor",
+            "event_topic": "events/central_heating/otmonitor",
+            "data_format": "raw"
+        },
         "html_templates": {
             "enabled": false,
             "editable": false
@@ -42,15 +50,22 @@
     },
     "panel_icon": "mdi:radiator",
     "schema": {
-        "otgw_host": "str",
-        "otgw_port": "int",
-        "relay_port": "int",
-        "mqtt_broker": "str?",
-        "mqtt_port": "int?",
-        "mqtt_username": "str?",
-        "mqtt_password": "str?",
-        "mqtt_client_id": "str?",
-        "mqtt_autoconfig": "bool",
+        "otgw": {
+            "host": "str",
+            "port": "int",
+            "relay_port": "int"
+        },
+        "mqtt": {
+            "autoconfig": "bool",
+            "broker": "str?",
+            "port": "int?",
+            "username": "str?",
+            "password": "str?",
+            "client_id": "str",
+            "action_topic": "str",
+            "event_topic": "str",
+            "data_format": "str"
+        },
         "html_templates": {
             "enabled": "bool",
             "editable": "bool"

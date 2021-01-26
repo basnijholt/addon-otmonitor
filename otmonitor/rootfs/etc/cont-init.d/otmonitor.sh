@@ -8,6 +8,16 @@ bashio::log.info "Initializing service configuration."
 
 OTMONITOR_CONF=/etc/otmonitor/otmonitor.conf
 
+# ======================================
+# Functions
+# ======================================
+
+function setconf() {
+    key="${2}"
+    value="${4}"
+
+    sed -i "s|%%${key}%%|${value}|g" ${OTMONITOR_CONF}
+}
 
 # ======================================
 # Configure custom html templates
@@ -38,45 +48,33 @@ fi
 # Update otgw host and ports in config
 # ======================================
 
-otgw_host="$( bashio::config 'otgw_host' )"
-otgw_port="$( bashio::config 'otgw_port' )"
-relay_port="$( bashio::config 'relay_port' )"
-
-sed -i "s|%%otgw_host%%|${otgw_host}|g" ${OTMONITOR_CONF}
-sed -i "s|%%otgw_port%%|${otgw_port}|g" ${OTMONITOR_CONF}
-sed -i "s|%%relay_port%%|${relay_port}|g" ${OTMONITOR_CONF}
-
+setconf --key otgw_host  --value "$( bashio::config otgw.host       )"
+setconf --key otgw_port  --value "$( bashio::config otgw.port       )"
+setconf --key relay_port --value "$( bashio::config otgw.relay_port )"
 
 # ======================================
 # Update MQTT settings in config
 # ======================================
 
-if bashio::config.true 'mqtt_autoconfig' ; then
+setconf --key mqtt_client_id    --value "$( bashio::config mqtt.client_id    )"
+setconf --key mqtt_action_topic --value "$( bashio::config mqtt.action_topic )"
+setconf --key mqtt_event_topic  --value "$( bashio::config mqtt.event_topic  )"
+setconf --key mqtt_data_format  --value "$( bashio::config mqtt.data_format  )"
+
+if bashio::config.true 'mqtt.autoconfig' ; then
     bashio::log.info "Using autoconfig provided MQTT credentials from supervisor"
 
-    mqtt_broker="$( bashio::services mqtt 'host' )"
-    mqtt_port="$( bashio::services mqtt 'port' )"
-    mqtt_username="$( bashio::services mqtt 'username' )"
-    mqtt_password="$( bashio::services mqtt 'password' )"
+    setconf --key mqtt_broker   --value "$( bashio::services mqtt host     )"
+    setconf --key mqtt_port     --value "$( bashio::services mqtt port     )"
+    setconf --key mqtt_username --value "$( bashio::services mqtt username )"
+    setconf --key mqtt_password --value "$( bashio::services mqtt password | base64 -w 0 )"
 else
     bashio::log.info "Using manually provided MQTT credentials"
 
-    mqtt_broker="$( bashio::config 'mqtt_broker' )"
-    mqtt_port="$( bashio::config 'mqtt_port' )"
-    mqtt_username="$( bashio::config 'mqtt_username' )"
-    mqtt_password="$( bashio::config 'mqtt_password' )"
+    setconf --key mqtt_broker   --value "$( bashio::config mqtt.broker   )"
+    setconf --key mqtt_port     --value "$( bashio::config mqtt.port     )"
+    setconf --key mqtt_username --value "$( bashio::config mqtt.username )"
+    setconf --key mqtt_password --value "$( bashio::config mqtt.password | base64 -w 0 )"
 fi
 
-mqtt_password_base64="$( echo -n "${mqtt_password}" | base64 -w 0 )"
-mqtt_client_id="$( bashio::config 'mqtt_client_id' )"
-
-if bashio::var.has_value "${mqtt_client_id}" ; then
-    sed -i "s|random_identifier_here|${mqtt_client_id:-'otmonitor'}|g" ${OTMONITOR_CONF}
-fi
-
-sed -i "s|%%mqtt_broker%%|${mqtt_broker}|g" ${OTMONITOR_CONF}
-sed -i "s|%%mqtt_port%%|${mqtt_port}|g" ${OTMONITOR_CONF}
-sed -i "s|%%mqtt_username%%|${mqtt_username}|g" ${OTMONITOR_CONF}
-sed -i "s|%%mqtt_password%%|${mqtt_password_base64}|g" ${OTMONITOR_CONF}
-
-bashio::log.info "Finished the config overwriting."
+bashio::log.info "Finished updating otmonitor config file."
