@@ -62,51 +62,86 @@
                                 </td>
                             </tr>
                         </table>
-                        </fieldset>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Setback temperature</legend>
+                        <table>
+                            <tr>
+                                <td width="*" class="fill">
+                                    <input type="range" id="setback" onchange="sync(this, 'setbackstr')" min="5" max="30" step="0.1" value="[get setback 16]" list="tickmarks">
+                                    <datalist id="tickmarks">
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                        <option>13</option>
+                                        <option>14</option>
+                                        <option>15</option>
+                                        <option>16</option>
+                                        <option>17</option>
+                                        <option>18</option>
+                                        <option>19</option>
+                                        <option>20</option>
+                                        <option>21</option>
+                                        <option>22</option>
+                                        <option>23</option>
+                                        <option>24</option>
+                                        <option>25</option>
+                                        <option>26</option>
+                                        <option>27</option>
+                                        <option>28</option>
+                                        <option>29</option>
+                                        <option>30</option>
+                                    </datalist>
+                                </td>
+                                <td width="10%" class="fill">
+                                    <input type="number" id="setbackstr" onchange="sync(this, 'setback')" min="5" max="30" step="0.1" value="[get setback 16]" list="tickmarks">
+                                </td>
+                                <td width="5%" class="fill">
+                                    <button class="btn" onclick="setpoint('setbackstr', 'SB')">Set</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="row-content">
+                <div>
+                    <h1>Miscellaneous</h1>
+                    <fieldset>
+                        <legend>Operating mode</legend>
+                        <table width="100%">
+                            <tr>
+                                <td width="*" id="gwmode">[get gwmode "Gateway mode"]</td>
+                                <td width="10%" class="fill">
+                                    <button class="btn" onclick="command('GW=1')">Gateway</button>
+                                </td>
+                                <td width="10%" class="fill">
+                                    <button class="btn" onclick="command('GW=0')">Monitor</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <form onsubmit="return commandstr('command')">
                         <fieldset>
-                            <legend>Setback temperature</legend>
-                            <table>
+                            <legend>Free format command</legend>
+                            <table width="100%">
                                 <tr>
                                     <td width="*" class="fill">
-                                        <input type="range" id="setback" onchange="sync(this, 'setbackstr')" min="5" max="30" step="0.1" value="[get setback 16]" list="tickmarks">
-                                        <datalist id="tickmarks">
-                                            <option>5</option>
-                                            <option>6</option>
-                                            <option>7</option>
-                                            <option>8</option>
-                                            <option>9</option>
-                                            <option>10</option>
-                                            <option>11</option>
-                                            <option>12</option>
-                                            <option>13</option>
-                                            <option>14</option>
-                                            <option>15</option>
-                                            <option>16</option>
-                                            <option>17</option>
-                                            <option>18</option>
-                                            <option>19</option>
-                                            <option>20</option>
-                                            <option>21</option>
-                                            <option>22</option>
-                                            <option>23</option>
-                                            <option>24</option>
-                                            <option>25</option>
-                                            <option>26</option>
-                                            <option>27</option>
-                                            <option>28</option>
-                                            <option>29</option>
-                                            <option>30</option>
-                                        </datalist>
+                                        <input type="text" id="command">
                                     </td>
-                                    <td width="10%" class="fill">
-                                        <input type="number" id="setbackstr" onchange="sync(this, 'setback')" min="5" max="30" step="0.1" value="[get setback 16]" list="tickmarks">
-                                    </td>
-                                    <td width="5%" class="fill">
-                                        <button class="btn" onclick="setpoint('setbackstr', 'SB')">Set</button>
+                                    <td style="width:4em;" class="fill">
+                                        <input type="submit" value="Send">
                                     </td>
                                 </tr>
                             </table>
                         </fieldset>
+                    </form>
                 </div>
             </div>
         </div>

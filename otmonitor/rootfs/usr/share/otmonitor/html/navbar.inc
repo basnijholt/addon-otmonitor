@@ -26,7 +26,6 @@
                         <li><a href="cfgleds.html">Leds</a></li>
                         <li><a href="cfgsettings.html">Settings</a></li>
                         <li><a href="cfgcounters.html">Counters</a></li>
-                        <li><a href="cfggeneral.html">General</a></li>
                         <li><a href="cfgconnection.html">Connection</a></li>
                         <li><a href="cfglogging.html">Datalog</a></li>
                         <li><a href="cfgalerts.html">Alerts</a></li>
