@@ -70,6 +70,5 @@
             "enabled": "bool",
             "editable": "bool"
         }
-    },
-    "image": "flapperdeflipper/addon-otmonitor-upstream"
+    }
 }
