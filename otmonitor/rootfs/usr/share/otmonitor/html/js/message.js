@@ -1,4 +1,4 @@
-var wsurl = getWebsocketUri("message.ws");
+var wsurl = "ws" + document.URL.match("s?://[-a-zA-Z0-9.:_/]+/") + "message.ws"
 
 if ("WebSocket" in window) {
    var ws = new WebSocket(wsurl);

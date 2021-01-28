@@ -18,7 +18,7 @@ function formatquery(url, json) {
     return url + '?' + query.join('&');
 }
 
-var wsurl = getWebsocketUri("status.ws");
+var wsurl = "ws" + document.URL.match("s?://[-a-zA-Z0-9.:_/]+/") + "status.ws"
 
 if (typeof query !== 'undefined') {
     wsurl = formatquery(wsurl, query);

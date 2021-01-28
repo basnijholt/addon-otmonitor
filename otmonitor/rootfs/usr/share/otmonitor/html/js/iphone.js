@@ -5,7 +5,7 @@ function debug(str) {
     if (output) output.innerHTML += str + "<BR>";
 }
 
-var wsurl = getWebsocketUri("basic.ws");
+var wsurl = "ws" + document.URL.match("s?://[-a-zA-Z0-9.:_/]+/") + "basic.ws"
 
 if ("WebSocket" in window) {
    var websocket = new WebSocket(wsurl);

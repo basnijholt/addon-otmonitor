@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     function updateDash(){
         $.ajax({
-            url: getHttpUri("json"),
+            url: "http" + document.URL.match("s?://[-a-zA-Z0-9.:_/]+/") + "json",
             dataType: "json",
             cache: false,
             success: function(json) {
