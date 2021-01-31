@@ -8,6 +8,9 @@ Opentherm monitor is a management and monitoring application for your [opentherm
 
 Install by going to Supervisor -> Add-on store -> Add new repository by url and fill in `https://github.com/basnijholt/addon-otmonitor`.
 
+## Documentation
+
+See [otmonitor/DOCS.md](https://github.com/basnijholt/addon-otmonitor/blob/master/otmonitor/DOCS.md).
 
 ## Local development
 
