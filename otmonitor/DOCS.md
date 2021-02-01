@@ -45,6 +45,7 @@ mqtt:
   client_id: otmonitor
   event_topic: "events/central_heating/otmonitor"
   action_topic: "actions/otmonitor"
+  data_format: raw
 
 html_templates:
   enabled: false
