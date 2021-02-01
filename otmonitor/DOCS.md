@@ -123,6 +123,12 @@ html_templates:
   - Default value: `events/central_heating/otmonitor`
   - Type: String
 
+- Subkey: `data_format`
+  - Description: Configure the data formatting for mqtt messages. Available options are: `raw`, `json`, `json1`, `json2`.
+  - This setting is optional
+  - Default value: `raw`
+  - Type: String
+
 
 ### Option: `html_templates` (Beta)
 
