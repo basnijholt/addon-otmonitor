@@ -4,7 +4,7 @@
     "slug": "otmonitor",
     "description": "otmonitor add-on by Bas Nijholt",
     "url": "https://github.com/basnijholt/addon-otmonitor",
-    "startup": "before",
+    "startup": "services",
     "hassio_api": true,
     "hassio_role": "default",
     "services": ["mqtt:want"],
