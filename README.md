@@ -37,5 +37,5 @@ To build the container manually, use:
 
 ```
 ARCH=amd64
-docker build --build-arg BUILD_FROM=homeassistant/${ARCH}-base-debian:buster  --build-arg BUILD_ARCH=${ARCH} .
+docker build --build-arg BUILD_FROM=homeassistant/${ARCH}-base-debian:bullseye --build-arg BUILD_ARCH=${ARCH} .
 ```
