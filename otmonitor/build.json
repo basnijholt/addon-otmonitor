@@ -1,11 +1,11 @@
 {
   "squash": false,
   "build_from": {
-    "aarch64": "hassioaddons/debian-base-aarch64:3.0.0",
-    "amd64": "hassioaddons/debian-base-amd64:3.0.0",
-    "armhf": "hassioaddons/debian-base-armhf:3.0.0",
-    "armv7": "hassioaddons/debian-base-armv7:3.0.0",
-    "i386": "hassioaddons/debian-base-i386:3.0.0"
+    "aarch64": "homeassistant/aarch64-base-debian:bullseye",
+    "amd64": "homeassistant/amd64-base-debian:bullseye",
+    "armhf": "homeassistant/armhf-base-debian:bullseye",
+    "armv7": "homeassistant/armv7-base-debian:bullseye",
+    "i386": "homeassistant/i386-base-debian:bullseye"
   },
   "args": {}
 }
