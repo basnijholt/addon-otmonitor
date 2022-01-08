@@ -41,7 +41,26 @@
             "client_id": "otmonitor",
             "action_topic": "actions/otmonitor",
             "event_topic": "events/central_heating/otmonitor",
-            "data_format": "raw"
+            "data_format": "raw",
+            "all_messages": false,
+            "qos": 1,
+            "retransmit": 10
+        },
+        "email": {
+            "enable": false,
+            "recipient": "recipient_here",
+            "sender": "sender_here",
+            "user": "user_here",
+            "password": "password_here",
+            "server": "mail_server_here",
+            "port": "mail_server_port_here",
+            "secure": "Plain, TLS or SSL"
+        },
+        "tspeak": {
+            "enable": false,
+            "key": "key_here",
+            "interval": 120,
+            "sync": true
         },
         "html_templates": {
             "enabled": false,
@@ -64,7 +83,26 @@
             "client_id": "str",
             "action_topic": "str",
             "event_topic": "str",
-            "data_format": "str"
+            "data_format": "str",
+            "all_messages": "bool",
+            "qos": "int?",
+            "retransmit": "int?"
+        },
+        "email": {
+            "enable": "bool",
+            "recipient": "str?",
+            "sender": "str?",
+            "user": "str?",
+            "password": "str?",
+            "server": "str?",
+            "port": "int?",
+            "secure": "str?"
+        },
+        "tspeak": {
+            "enable": "bool",
+            "key": "str?",
+            "interval": "int?",
+            "sync": "bool"
         },
         "html_templates": {
             "enabled": "bool",
