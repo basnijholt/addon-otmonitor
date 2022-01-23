@@ -54,7 +54,7 @@
             "password": "password_here",
             "server": "mail_server_here",
             "port": "mail_server_port_here",
-            "secure": "Plain, TLS or SSL"
+            "secure": "Plain"
         },
         "tspeak": {
             "enable": false,
