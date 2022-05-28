@@ -17,6 +17,7 @@
     ],
     "boot": "auto",
     "ingress": true,
+    "init": false,
     "ports": {
         "8080/tcp": 8080,
         "7686/tcp": 7686
