@@ -16,7 +16,10 @@ that can be used for monitoring and managing your opentherm gateway.
 To get the addon running, some configuration needs to be updated prior to starting.
 
 This includes the host and port on which the addon can access your opentherm gateway and the
-credentials that the addon should use to connect to an MQTT broker (only required if `mqtt.autoconfig` is disabled, which is the default option).
+credentials that the addon should use to connect to an MQTT broker (only required if `mqtt.autoconfig` 
+is disabled, which is the default option). Also MQTT is not required if you plan to use the
+HomeAssistant OpenTherm integration through the relay port. In the latter case, set `mqtt.enable`
+to `false`.
 
 This add-on has a couple of options available. To get the add-on running:
 
@@ -54,17 +57,29 @@ html_templates:
 
 ### Option: `otgw`
 
+- Subkey: `type`
+  - Description: The connection type OTGW. OTGW supports either `tcp` or `serial`.
+  - This setting is required
+  - Default value: `tcp`
+  - Type: String
+
 - Subkey: `host`
   - Description: The host or ip to connect to the OTGW.
-  - This setting is required
+  - This setting is required if `type` is `tcp`.
   - Default value: `192.168.1.24`
   - Type: String
 
 - Subkey: `port`
   - Description: The port to connect to on the OTGW.
-  - This setting is required
+  - This setting is required if `type` is `tcp`.
   - Default value: `6638`
   - Type: Integer
+
+- Subkey: `device`
+  - Description: The serial device to use for connecting to the OTGW.
+  - This setting is required if `type` is `serial`.
+  - Default value: `/dev/serial0`
+  - Type: String
 
 - Subkey: `relay_port`
   - Description: The port for relaying opentherm messages.
@@ -74,6 +89,12 @@ html_templates:
 
 
 ### Option: `mqtt`
+
+- Subkey: `enable`
+  - Description: Enable the MQTT connection.
+  - This setting is required
+  - Default value: `true`
+  - Type: Boolean
 
 - Subkey: `autoconfig`
   - Description: Retrieve the MQTT broker host, port and credentials from supervisor. (When using the mosquitto addon)
