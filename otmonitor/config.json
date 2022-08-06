@@ -37,6 +37,7 @@
             "relay_port": 7686
         },
         "mqtt": {
+            "enable": true,
             "autoconfig": false,
             "broker": "addon_core_mosquitto",
             "port": 1883,
@@ -81,6 +82,7 @@
             "relay_port": "int"
         },
         "mqtt": {
+            "enable": "bool",
             "autoconfig": "bool",
             "broker": "str?",
             "port": "int?",

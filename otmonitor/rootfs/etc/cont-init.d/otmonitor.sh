@@ -58,6 +58,7 @@ setconf --key relay_port  --value "$( bashio::config otgw.relay_port )"
 # Update MQTT settings in config
 # ======================================
 
+setconf --key mqtt_enable       --value "$( bashio::config mqtt.enable       )"
 setconf --key mqtt_client_id    --value "$( bashio::config mqtt.client_id    )"
 setconf --key mqtt_action_topic --value "$( bashio::config mqtt.action_topic )"
 setconf --key mqtt_event_topic  --value "$( bashio::config mqtt.event_topic  )"
