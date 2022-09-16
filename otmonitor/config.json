@@ -16,6 +16,7 @@
         "i386"
     ],
     "boot": "auto",
+    "uart": true,
     "ingress": true,
     "init": false,
     "ports": {
@@ -29,11 +30,14 @@
     "map": ["share:rw"],
     "options": {
         "otgw": {
+            "type": "tcp",
             "host": "192.168.1.24",
             "port": 6638,
+            "device": "/dev/serial0",
             "relay_port": 7686
         },
         "mqtt": {
+            "enable": true,
             "autoconfig": false,
             "broker": "addon_core_mosquitto",
             "port": 1883,
@@ -71,11 +75,14 @@
     "panel_icon": "mdi:radiator",
     "schema": {
         "otgw": {
-            "host": "str",
-            "port": "int",
+            "type": "str",
+            "host": "str?",
+            "port": "int?",
+            "device": "str?",
             "relay_port": "int"
         },
         "mqtt": {
+            "enable": "bool",
             "autoconfig": "bool",
             "broker": "str?",
             "port": "int?",
